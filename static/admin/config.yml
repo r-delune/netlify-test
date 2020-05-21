@@ -36,14 +36,15 @@ collections:
   #
   # MODULES
   #
-  - label: 'Activities'
-    name: 'activities'
+  - label: 'Modules'
+    name: 'modules'
     format: 'json'
     delete: false
+    create: true
     files:
       - label: 'Module'
         name: 'modules'
-        file: 'assets/content/social/assessment/pages.json'
+        file: 'assets/content/modules/modules.json'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Id', name: 'Id', widget: 'number' }
@@ -64,10 +65,10 @@ collections:
                   - { label: 'Rank', value: 'rank' }
                   - { label: 'MCQ', value: 'MCQ' }
                   - { label: 'Likeart', value: 'likeart' }
+                  - { label: 'Custom', value: 'custom' }
               - label: 'Options'
                 name: 'options'
                 widget: 'list'
                 fields:
                   - { label: 'Label', name: 'label', widget: 'string', required: false }
                   - { label: 'Value', name: 'value', widget: 'string' }
-          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
