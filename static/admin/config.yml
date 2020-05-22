@@ -45,7 +45,7 @@ collections:
         collapsed: true
         fields:
           - { label: 'ID', name: 'number', widget: 'number' }
-          - { label: 'Text', name: 'text', widget: 'text' }
+          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
           - label: 'List'
             description: >
               'Create a list of items to display'
@@ -59,8 +59,11 @@ collections:
               'Add a section requiring user input'
             name: 'form'
             widget: 'list'
+            fields:
+              - { label: 'Question Text', name: 'item', widget: 'string' }
             types:
               - label: 'Yes/No Question'
+              
                 name: 'binary'
                 widget: 'object'
                 hint: Create a yes/no format question
@@ -77,7 +80,7 @@ collections:
                   Create a slider format question
                 widget: 'object'
                 fields:
-                  - { label: 'Question Text', name: 'string', widget: 'string' }
+                  - { label: 'Question Text', name: 'text', widget: 'string' }
                   - { label: 'Yes Text', name: 'yes', widget: 'text' }
                   - { label: 'Label (Low)', name: 'low_label', widget: 'text' }             
                   - { label: 'Label (High)', name: 'high_label', widget: 'text' }
@@ -96,7 +99,7 @@ collections:
                     widget: 'list'
                     hint: 'Add an item to the list'
                     fields:
-                      - { label: 'List Item', name: 'string', widget: 'string' }
+                      - { label: 'List Item', name: 'item', widget: 'string' }
               - label: 'Multiple Choice Question'
                 name: 'choice'
                 widget: 'list'
@@ -104,7 +107,7 @@ collections:
                 description: >
                   Create a multiple choice question
                 fields:
-                  - { label: 'Question Text', name: 'string', widget: 'string' }
+                  - { label: 'Question Text', name: 'item', widget: 'string' }
                   - { label: 'List Item', name: 'string', widget: 'string' }
               - name: 'Likeart Scale'
                 widget: 'list'
