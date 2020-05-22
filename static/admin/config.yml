@@ -19,32 +19,177 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: "pages"
+    label: "Pages"
     files:
-      - label: 'Module'
-        name: 'module'
-        file: 'assets/content/pages/modules.json'
+      - file: "src/pages/about/index.md"
+        label: "About"
+        name: "about"
         fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Id', name: 'Id', widget: 'number' }
-          - label: 'Page'
-            name: 'page'
-            file: 'assets/content/pages.json'
-            widget: 'list'
-            fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
-              - { label: 'Text', name: 'text', widget: 'string' }
-              - { label: 'Id', name: 'id', widget: 'number' }
-              - label: 'Form Type'
-                name: 'form_type'
-                widget: 'select'
-                default: 'binary'
-                options:
-                  - { label: 'Binary', value: 'binary' }
-                  - { label: 'Slider', value: 'slider' }
-                  - { label: 'Rank', value: 'rank' }
-                  - { label: 'MCQ', value: 'MCQ' }
-                  - { label: 'Likeart', value: 'likeart' }
-                  - { label: 'Custom', value: 'custom' }
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: "Main Image",
+              name: "mainImage",
+              widget: "object",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                ],
+            }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: "Image Gallery",
+              name: "gallery",
+              widget: "list",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                ],
+            }
+          - { label: "Developer Groups", name: "developerGroups", widget: "markdown" }
+          - {
+              label: "Meetup Organizers",
+              name: "organizers",
+              widget: "object",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  {
+                    label: "Images",
+                    name: "gallery",
+                    widget: "list",
+                    fields:
+                      [
+                        { label: "Name", name: "name", widget: "string" },
+                        { label: "Image", name: "image", widget: "image" },
+                        { label: "Image Description", name: "imageAlt", widget: "string" },
+                      ],
+                  },
+                ],
+            }
+          - {
+              label: "SEO & Meta",
+              name: "seo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
+      - file: "src/pages/pastMeetups/index.md"
+        label: "Past Meetups"
+        name: "pastMeetups"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "past-meetups-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: "SEO & Meta",
+              name: "seo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
+      - file: "src/pages/home/index.md"
+        label: "Home"
+        name: "home"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
+          - {
+              label: "Header Image",
+              name: "headerImage",
+              widget: "object",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                ],
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Upcoming Meetup Heading", name: "upcomingMeetupHeading", widget: "string" }
+          - { label: "No Upcoming Meetup Text", name: "noUpcomingMeetupText", hint: "This text will be displayed when there are no upcoming meetups", required: true, widget: "string" }
+          - { label: "Maps Note", name: "mapsNote", required: true, widget: "string" }
+          - {
+              label: "Call to Actions",
+              name: "callToActions",
+              required: true,
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "First CTA",
+                    name: "firstCTA",
+                    required: true,
+                    widget: "object",
+                    fields:
+                      [
+                        { label: "Heading", name: "heading", widget: "string" },
+                        { label: "Sub Heading", name: "subHeading", widget: "string" },
+                        {
+                          label: "Link Type",
+                          name: "linkType",
+                          widget: "select",
+                          options: ["internal", "external"],
+                        },
+                        {
+                          label: "Link URL",
+                          name: "linkURL",
+                          widget: "string",
+                          hint: "Use a relative URL (e.g. /about) if the link is an internal link.",
+                        }
+                      ]
+                  },
+                  {
+                    label: "Second CTA",
+                    name: "secondCTA",
+                    required: true,
+                    widget: "object",
+                    fields:
+                      [
+                        { label: "Heading", name: "heading", widget: "string" },
+                        { label: "Sub Heading", name: "subHeading", widget: "string" },
+                        {
+                          label: "Link Type",
+                          name: "linkType",
+                          widget: "select",
+                          options: ["internal", "external"],
+                        },
+                        {
+                          label: "Link URL",
+                          name: "linkURL",
+                          widget: "string",
+                          hint: "Use a relative URL (e.g. /about) if the link is an internal link.",
+                        }
+                      ]
+                  }
+                ],
+            }
+          - {
+              label: "SEO & Meta",
+              name: "seo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
       
 
   #
@@ -170,7 +315,6 @@ collections:
     create: true
     delete: false
     files:
-
       - label: 'Introduction'
         name: 'introduction'
         file: 'assets/content/review/assessment/introduction.json'
@@ -178,7 +322,6 @@ collections:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
           - { label: 'Next Button', name: 'btn_next', widget: 'string' }
-
       - label: 'Questions'
         name: 'questions'
         file: 'assets/content/review/assessment/questions.json'
