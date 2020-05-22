@@ -4,22 +4,46 @@ backend:
 
 media_folder: static/img
 public_folder: /img
-
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'assets/content/blog'
-    create: true
+  #
+  # REVIEW ACTIVITY #######################################################
+  #
+  - label: 'Review'
+    name: 'review'
     format: 'json'
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
+    create: true
+    delete: false
+    files:
+      - label: 'Introduction'
+        name: 'introduction'
+        file: 'assets/content/review/assessment/introduction.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+      - label: 'Questions'
+        name: 'questions'
+        file: 'assets/content/review/assessment/questions.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+              - { label: 'Id', name: 'id', widget: 'number' }
+              - label: 'Form Type'
+                name: 'form_type'
+                widget: 'select'
+                default: 'binary'
+                options:
+                  - { label: 'Binary', value: 'binary' }
+                  - { label: 'Slider', value: 'slider' }
+                  - { label: 'Rank', value: 'rank' }
+                  - { label: 'MCQ', value: 'MCQ' }
+                  - { label: 'Likeart', value: 'likeart' }
+                  - { label: 'Custom', value: 'custom' }
   - name: "pages"
     label: "Pages"
     files:
@@ -190,153 +214,3 @@ collections:
                   { label: "Description", name: "description", widget: "string" },
                 ],
             }
-      
-
-  #
-  # GENERAL PAGES #######################################################
-  #
-  - label: 'General'
-    name: 'general'
-    format: 'json'
-    delete: false
-    files:
-      - label: 'Home'
-        name: 'home'
-        file: 'assets/content/home.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Register Button', name: 'btn_register', widget: 'string' }
-          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
-      - label: 'Register'
-        name: 'register'
-        file: 'assets/content/register.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
-          - { label: 'Copied Message', name: 'copy', widget: 'markdown' }
-          - { label: 'Saved Message', name: 'save', widget: 'markdown' }
-          - { label: 'Copy Button', name: 'btn_copy', widget: 'string' }
-          - { label: 'Save Button', name: 'btn_save', widget: 'string' }
-          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-      - label: 'Login'
-        name: 'login'
-        file: 'assets/content/login.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
-          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
-          - { label: 'Cancel Button', name: 'btn_cancel', widget: 'string' }
-      - label: 'Activities'
-        name: 'activities'
-        file: 'assets/content/activities.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Drug Use', name: 'drugs', widget: 'string' }
-          - { label: 'Behavioural Awareness', name: 'awareness', widget: 'string' }
-          - { label: 'Relationship Assessment', name: 'relationships', widget: 'string' }
-          - { label: 'Goals and Committed Actions', name: 'goals', widget: 'string' }
-          - { label: 'Social Norms', name: 'social', widget: 'string' }
-          - { label: 'Overall Personalized feedback ', name: 'review', widget: 'string' }
-      - label: 'About'
-        name: 'about'
-        file: 'assets/content/about.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-      - label: 'Support'
-        name: 'support'
-        file: 'assets/content/support.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-
-
-  #
-  # MODULES
-  #
-  - label: 'Modules'
-    name: 'modules'
-    format: 'json'
-    folder: 'assets/content/moduletest/'
-    create: true
-    delete: false
-    editor:
-      preview: false
-    files:
-      - label: 'Module'
-        name: 'module'
-        file: 'assets/content/pages/modules.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Id', name: 'Id', widget: 'number' }
-          - label: 'Page'
-            name: 'page'
-            file: 'assets/content/pages.json'
-            widget: 'list'
-            fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
-              - { label: 'Text', name: 'text', widget: 'string' }
-              - { label: 'Id', name: 'id', widget: 'number' }
-              - label: 'Form Type'
-                name: 'form_type'
-                widget: 'select'
-                default: 'binary'
-                options:
-                  - { label: 'Binary', value: 'binary' }
-                  - { label: 'Slider', value: 'slider' }
-                  - { label: 'Rank', value: 'rank' }
-                  - { label: 'MCQ', value: 'MCQ' }
-                  - { label: 'Likeart', value: 'likeart' }
-                  - { label: 'Custom', value: 'custom' }
-  - name: 'ModuleTest'
-    label: 'ModuleTest'
-    folder: 'assets/content/moduletest/'
-    create: true
-    format: 'json'
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
-  #
-  # REVIEW ACTIVITY #######################################################
-  #
-  - label: 'Review'
-    name: 'review'
-    format: 'json'
-    create: true
-    delete: false
-    files:
-      - label: 'Introduction'
-        name: 'introduction'
-        file: 'assets/content/review/assessment/introduction.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
-      - label: 'Questions'
-        name: 'questions'
-        file: 'assets/content/review/assessment/questions.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - label: 'Questions'
-            name: 'questions'
-            widget: 'list'
-            fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
-              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
-              - { label: 'Id', name: 'id', widget: 'number' }
-              - label: 'Options'
-                name: 'options'
-                widget: 'list'
-                fields:
-                  - { label: 'Label', name: 'label', widget: 'string' }
-                  - { label: 'Value', name: 'value', widget: 'string' }
