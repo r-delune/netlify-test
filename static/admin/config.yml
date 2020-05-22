@@ -32,7 +32,6 @@ collections:
         fields:
           - { label: 'ID', name: 'number', widget: 'number' }
           - { label: 'Text', name: 'text', widget: 'text' }
-          - { label: 'Image', name: 'image', widget: 'image' }
           - label: 'List'
             description: >
               'Create a list of items to display'
@@ -50,21 +49,23 @@ collections:
               - { label: 'Question Text', name: 'string', widget: 'string' }
               - label: 'Yes/No Question'
                 name: 'binary'
+                widget: 'object'
+                hint: Create a yes/no format question
                 description: >
                   Create a yes/no format question
-                widget: 'object'
                 fields:
-                  - { label: 'Yes Text', name: 'text', widget: 'text' }
-                  - { label: 'No text', name: 'text', widget: 'text' }
+                  - { label: 'Yes Text', name: 'yes', widget: 'text' }
+                  - { label: 'No text', name: 'no', widget: 'text' }
               - label: 'Slider Question'
                 name: 'slider'
+                hint: Create a slider format question
                 description: >
                   Create a slider format question
                 widget: 'object'
                 fields:
-                  - { label: 'Yes Text', name: 'text', widget: 'text' }
-                  - { label: 'Label (Low)', name: 'text', widget: 'text' }             
-                  - { label: 'Label (High)', name: 'text', widget: 'text' }
+                  - { label: 'Yes Text', name: 'yes', widget: 'text' }
+                  - { label: 'Label (Low)', name: 'low_label', widget: 'text' }             
+                  - { label: 'Label (High)', name: 'high_label', widget: 'text' }
                   - { label: 'Range', name: 'number', widget: 'number' }
                   - { label: 'Created', name: 'datetime', widget: 'datetime' }
               - label: 'Select and Rank'
@@ -83,6 +84,7 @@ collections:
               - label: 'Multiple Choice Question'
                 name: 'choice'
                 widget: 'object'
+                hint: Create a multiple choice question
                 description: >
                   Create a multiple choice question
                 fields:
@@ -94,6 +96,7 @@ collections:
                       - { label: 'List Item', name: 'string', widget: 'string' }
               - name: 'Likeart Scale'
                 widget: 'list'
+                hint: Create a Likeart Scale question
                 description: >
                   Create a Likeart Scale question
                 fields:
