@@ -150,6 +150,7 @@ collections:
   - label: 'Review'
     name: 'review'
     format: 'json'
+    create: true
     delete: false
     files:
 
