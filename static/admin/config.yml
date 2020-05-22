@@ -6,63 +6,13 @@ media_folder: static/img
 public_folder: /img
 
 display_url: https://miuse-test.com
-logo_url: https://your-site.com/images/logo.svg
+logo_url: https://miuse-test.com/images/logo.svg
 
 collections:
-  #
-  # GENERAL PAGES #######################################################
-  #
-  - label: 'General'
-    name: 'general'
-    format: 'json'
-    delete: false
-    files:
-      - label: 'Home'
-        name: 'home'
-        file: 'assets/content/home.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Register Button', name: 'btn_register', widget: 'string' }
-          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
-      - label: 'Register'
-        name: 'register'
-        file: 'assets/content/register.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
-          - { label: 'Copied Message', name: 'copy', widget: 'markdown' }
-          - { label: 'Saved Message', name: 'save', widget: 'markdown' }
-          - { label: 'Copy Button', name: 'btn_copy', widget: 'string' }
-          - { label: 'Save Button', name: 'btn_save', widget: 'string' }
-          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-      - label: 'Login'
-        name: 'login'
-        file: 'assets/content/login.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
-          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
-          - { label: 'Cancel Button', name: 'btn_cancel', widget: 'string' }
-      - label: 'About'
-        name: 'about'
-        file: 'assets/content/about.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-      - label: 'Support'
-        name: 'support'
-        file: 'assets/content/support.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-  - name: 'Module Content' # all the things in one entry, for documentation and quick testing
+  - name: 'Module Content' 
     label: 'Modules'
     folder: '_modules'
-    label_singular: 'Module' # Used in the UI, ie: "New Post"
+    label_singular: 'Module'
     description: >
       'Create a new module here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree'
     create: true
@@ -71,16 +21,13 @@ collections:
     fields:
       - label: 'Module'
         name: 'module'
-        collection: 'module'
-        displayFields: ['title', 'date']
-        searchFields: ['title', 'body']
-        valueField: 'title'
       - { label: 'Title', name: 'title', widget: 'string', hint: 'Name of the module'}
       - { label: 'Text', name: 'text', widget: 'text', hint: 'Description of the module - displayed at the beginning' }
       - { label: 'Number', name: 'number', widget: 'number', hint: 'The ID number of this module' }
       - { label: 'Created On', name: 'datetime', widget: 'datetime' }
       - label: 'Page'
         name: 'page'
+        create: true
         widget: 'object'
         description: >
           Create a new page within this module - routing will be carried out seperately via the decision tree        
@@ -121,8 +68,8 @@ collections:
                 fields:
                   - { label: 'Question Text', name: 'string', widget: 'string' }
                   - { label: 'Yes Text', name: 'text', widget: 'text' }
-                  - { label: 'High text', name: 'text', widget: 'text' }             
-                  - { label: 'Low text', name: 'text', widget: 'text' }
+                  - { label: 'Label (Low)', name: 'text', widget: 'text' }             
+                  - { label: 'Label (High)', name: 'text', widget: 'text' }
                   - { label: 'Range', name: 'number', widget: 'number' }
                   - { label: 'Created', name: 'datetime', widget: 'datetime' }
               - label: 'Select and Rank'
@@ -136,14 +83,7 @@ collections:
                     widget: 'list'
                     hint: 'Add an item to the list'
                     fields:
-                      - label: 'Related Post'
-                        name: 'post'
-                        widget: 'relationKitchenSinkPost'
-                        collection: 'posts'
-                        searchFields: ['title', 'body']
-                        valueField: 'title'
                       - { label: 'List Item', name: 'string', widget: 'string' }
-                      - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
               - label: 'Multiple Choice Question'
                 name: 'choice'
                 widget: 'list'
@@ -179,32 +119,10 @@ collections:
                         valueField: 'title'
                       - { label: 'List Item', name: 'string', widget: 'string' }
                       - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-              - name: 'Custom Component'
+              - name: 'Custom Input'
                 widget: 'object'
-                hint: 'This is custom component specific to this page/acitivity'
+                hint: 'This is custom component specific to this page/activity'
                 fields:
                   - { label: 'Component ID', name: 'number', widget: 'number' }
                   - { label: 'Component Name', name: 'string', widget: 'string' }
-  - name: "navigation"
-    label: "Navigation"
-    extension: "json"
-    format: "json"
-    create: true
-    folder: src/data/navigation
-    slug: "{{slug}}"
-    editor:
-       preview: false
-    fields:
-      - {name: title}
-      - name: sections
-        label: Sections
-        widget: list
-        fields:
-        - {name: title}
-        - name: links
-          label: Links
-          widget: list
-          fields:
-            - {name: title}
-            - {name: url}
   
