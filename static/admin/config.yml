@@ -143,3 +143,39 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  #
+  # REVIEW ACTIVITY #######################################################
+  #
+  - label: 'Review'
+    name: 'review'
+    format: 'json'
+    delete: false
+    files:
+
+      - label: 'Introduction'
+        name: 'introduction'
+        file: 'assets/content/review/assessment/introduction.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+
+      - label: 'Questions'
+        name: 'questions'
+        file: 'assets/content/review/assessment/questions.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
+              - { label: 'Id', name: 'id', widget: 'number' }
+              - label: 'Options'
+                name: 'options'
+                widget: 'list'
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string' }
+                  - { label: 'Value', name: 'value', widget: 'string' }
