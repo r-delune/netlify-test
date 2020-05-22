@@ -185,30 +185,16 @@ collections:
     fields:
       - label: 'Module'
         name: 'module'
-        widget: 'relationPagePost'
         collection: 'module'
         displayFields: ['title', 'date']
         searchFields: ['title', 'body']
         valueField: 'title'
-      - { label: 'Title', name: 'title', widget: 'string', hint: 'Enter the title of the module'}
-      - { label: 'Boolean', name: 'boolean', widget: 'boolean', default: true }
+      - { label: 'Title', name: 'title', widget: 'string', hint: 'Name of the module'}
       - { label: 'Text', name: 'text', widget: 'text', hint: 'Description of the module - displayed at the beginning' }
       - { label: 'Number', name: 'number', widget: 'number', hint: 'The ID number of this module' }
-      - { label: 'Related image', name: 'image', widget: 'image', required: false, tagname: ''}
-      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content goes here.' }
       - { label: 'Created On', name: 'datetime', widget: 'datetime' }
-      - { label: 'Decision Tree Image', name: 'image', widget: 'image' }
-      - { label: 'Decision Tree JSON', name: 'file', widget: 'file' }
-      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-      - {
-          label: 'Select multiple',
-          name: 'select_multiple',
-          widget: 'select',
-          options: ['a', 'b', 'c'],
-          multiple: true,
-        }
-      - label: 'Object'
-        name: 'object'
+      - label: 'Page'
+        name: 'page'
         widget: 'object'
         collapsed: true
         fields:
@@ -228,74 +214,6 @@ collections:
           - { label: 'Image', name: 'image', widget: 'image' }
           - { label: 'File', name: 'file', widget: 'file' }
           - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-      - label: 'List'
-        name: 'list'
-        widget: 'list'
-        fields:
-          - { label: 'String', name: 'string', widget: 'string' }
-          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-          - { label: 'Text', name: 'text', widget: 'text' }
-          - { label: 'Number', name: 'number', widget: 'number' }
-          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-          - { label: 'Date', name: 'date', widget: 'date' }
-          - { label: 'Image', name: 'image', widget: 'image' }
-          - { label: 'File', name: 'file', widget: 'file' }
-          - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-          - label: 'Object'
-            name: 'object'
-            widget: 'object'
-            fields:
-              - { label: 'String', name: 'string', widget: 'string' }
-              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-              - { label: 'Text', name: 'text', widget: 'text' }
-              - { label: 'Number', name: 'number', widget: 'number' }
-              - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-              - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-              - { label: 'Date', name: 'date', widget: 'date' }
-              - { label: 'Image', name: 'image', widget: 'image' }
-              - { label: 'File', name: 'file', widget: 'file' }
-              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-              - label: 'List'
-                name: 'list'
-                widget: 'list'
-                fields:
-                  - label: 'Related Post'
-                    name: 'post'
-                    widget: 'relationKitchenSinkPost'
-                    collection: 'posts'
-                    searchFields: ['title', 'body']
-                    valueField: 'title'
-                  - { label: 'String', name: 'string', widget: 'string' }
-                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                  - { label: 'Text', name: 'text', widget: 'text' }
-                  - { label: 'Number', name: 'number', widget: 'number' }
-                  - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-                  - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-                  - { label: 'Date', name: 'date', widget: 'date' }
-                  - { label: 'Image', name: 'image', widget: 'image' }
-                  - { label: 'File', name: 'file', widget: 'file' }
-                  - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-                  - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
-                  - label: 'Object'
-                    name: 'object'
-                    widget: 'object'
-                    fields:
-                      - { label: 'String', name: 'string', widget: 'string' }
-                      - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                      - { label: 'Text', name: 'text', widget: 'text' }
-                      - { label: 'Number', name: 'number', widget: 'number' }
-                      - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-                      - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-                      - { label: 'Date', name: 'date', widget: 'date' }
-                      - { label: 'Image', name: 'image', widget: 'image' }
-                      - { label: 'File', name: 'file', widget: 'file' }
-                      - {
-                          label: 'Select',
-                          name: 'select',
-                          widget: 'select',
-                          options: ['a', 'b', 'c'],
-                        }
       - label: 'User Input'
         hint: 'Add a section requiring user input'
         description: >
@@ -380,6 +298,76 @@ collections:
             fields:
               - { label: 'Component ID', name: 'number', widget: 'number' }
               - { label: 'Component Name', name: 'string', widget: 'string' }
+
+
+      - label: 'List'
+        name: 'list'
+        widget: 'list'
+        fields:
+          - { label: 'String', name: 'string', widget: 'string' }
+          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+          - { label: 'Text', name: 'text', widget: 'text' }
+          - { label: 'Number', name: 'number', widget: 'number' }
+          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+          - { label: 'Date', name: 'date', widget: 'date' }
+          - { label: 'Image', name: 'image', widget: 'image' }
+          - { label: 'File', name: 'file', widget: 'file' }
+          - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+          - label: 'Object'
+            name: 'object'
+            widget: 'object'
+            fields:
+              - { label: 'String', name: 'string', widget: 'string' }
+              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+              - { label: 'Text', name: 'text', widget: 'text' }
+              - { label: 'Number', name: 'number', widget: 'number' }
+              - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+              - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+              - { label: 'Date', name: 'date', widget: 'date' }
+              - { label: 'Image', name: 'image', widget: 'image' }
+              - { label: 'File', name: 'file', widget: 'file' }
+              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+              - label: 'List'
+                name: 'list'
+                widget: 'list'
+                fields:
+                  - label: 'Related Post'
+                    name: 'post'
+                    widget: 'relationKitchenSinkPost'
+                    collection: 'posts'
+                    searchFields: ['title', 'body']
+                    valueField: 'title'
+                  - { label: 'String', name: 'string', widget: 'string' }
+                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                  - { label: 'Text', name: 'text', widget: 'text' }
+                  - { label: 'Number', name: 'number', widget: 'number' }
+                  - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+                  - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+                  - { label: 'Date', name: 'date', widget: 'date' }
+                  - { label: 'Image', name: 'image', widget: 'image' }
+                  - { label: 'File', name: 'file', widget: 'file' }
+                  - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+                  - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
+                  - label: 'Object'
+                    name: 'object'
+                    widget: 'object'
+                    fields:
+                      - { label: 'String', name: 'string', widget: 'string' }
+                      - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                      - { label: 'Text', name: 'text', widget: 'text' }
+                      - { label: 'Number', name: 'number', widget: 'number' }
+                      - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+                      - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+                      - { label: 'Date', name: 'date', widget: 'date' }
+                      - { label: 'Image', name: 'image', widget: 'image' }
+                      - { label: 'File', name: 'file', widget: 'file' }
+                      - {
+                          label: 'Select',
+                          name: 'select',
+                          widget: 'select',
+                          options: ['a', 'b', 'c'],
+                        }
   - name: "navigation"
     label: "Navigation"
     extension: "json"
