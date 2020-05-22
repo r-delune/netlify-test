@@ -12,6 +12,7 @@ collections:
   - name: 'Module Content' 
     label: 'Modules'
     folder: '_modules'
+    extension: "json"
     label_singular: 'Module'
     description: >
       Create a new module here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree
