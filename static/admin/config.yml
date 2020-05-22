@@ -4,175 +4,61 @@ backend:
 
 media_folder: static/img
 public_folder: /img
+
+display_url: https://miuse-test.com
+logo_url: https://your-site.com/images/logo.svg
+
 collections:
   #
-  # REVIEW ACTIVITY #######################################################
+  # GENERAL PAGES #######################################################
   #
-  - label: 'Review'
-    name: 'review'
+  - label: 'General'
+    name: 'general'
     format: 'json'
-    create: true
     delete: false
     files:
-      - label: 'Introduction'
-        name: 'introduction'
-        file: 'assets/content/review/assessment/introduction.json'
+      - label: 'Home'
+        name: 'home'
+        file: 'assets/content/home.json'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
-      - label: 'Questions'
-        name: 'questions'
-        file: 'assets/content/review/assessment/questions.json'
+          - { label: 'Register Button', name: 'btn_register', widget: 'string' }
+          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
+      - label: 'Register'
+        name: 'register'
+        file: 'assets/content/register.json'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
-          - label: 'Questions'
-            name: 'questions'
-            widget: 'list'
-            fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
-              - { label: 'Subtitle', name: 'subtitle', widget: 'string' }
-              - { label: 'Id', name: 'id', widget: 'number' }
-              - label: 'Form Type'
-                name: 'form_type'
-                widget: 'select'
-                default: 'binary'
-                options:
-                  - { label: 'Binary', value: 'binary' }
-                  - { label: 'Slider', value: 'slider' }
-                  - { label: 'Rank', value: 'rank' }
-                  - { label: 'MCQ', value: 'MCQ' }
-                  - { label: 'Likeart', value: 'likeart' }
-                  - { label: 'Custom', value: 'custom' }
-  - name: "pages"
-    label: "Pages"
-    files:
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
+          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
+          - { label: 'Copied Message', name: 'copy', widget: 'markdown' }
+          - { label: 'Saved Message', name: 'save', widget: 'markdown' }
+          - { label: 'Copy Button', name: 'btn_copy', widget: 'string' }
+          - { label: 'Save Button', name: 'btn_save', widget: 'string' }
+          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
+          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
+      - label: 'Login'
+        name: 'login'
+        file: 'assets/content/login.json'
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
-          - { label: "Title", name: "title", widget: "string" }
-          - {
-              label: "Main Image",
-              name: "mainImage",
-              widget: "object",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                ],
-            }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - {
-              label: "Image Gallery",
-              name: "gallery",
-              widget: "list",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                ],
-            }
-          - { label: "Developer Groups", name: "developerGroups", widget: "markdown" }
-          - {
-              label: "Meetup Organizers",
-              name: "organizers",
-              widget: "object",
-              fields:
-                [
-                  { label: "Title", name: "title", widget: "string" },
-                  {
-                    label: "Images",
-                    name: "gallery",
-                    widget: "list",
-                    fields:
-                      [
-                        { label: "Name", name: "name", widget: "string" },
-                        { label: "Image", name: "image", widget: "image" },
-                        { label: "Image Description", name: "imageAlt", widget: "string" },
-                      ],
-                  },
-                ],
-            }
-          - {
-              label: "SEO & Meta",
-              name: "seo",
-              widget: "object",
-              fields:
-                [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
-                ],
-            }
-      - file: "src/pages/pastMeetups/index.md"
-        label: "Past Meetups"
-        name: "pastMeetups"
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
+          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
+          - { label: 'Cancel Button', name: 'btn_cancel', widget: 'string' }
+      - label: 'About'
+        name: 'about'
+        file: 'assets/content/about.json'
         fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "past-meetups-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - {
-              label: "SEO & Meta",
-              name: "seo",
-              widget: "object",
-              fields:
-                [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
-                ],
-            }
-      - file: "src/pages/home/index.md"
-        label: "Home"
-        name: "home"
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
+      - label: 'Support'
+        name: 'support'
+        file: 'assets/content/support.json'
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
-          - {
-              label: "Header Image",
-              name: "headerImage",
-              widget: "object",
-              fields:
-                [
-                  { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
-                ],
-            }
-  - name: 'posts' # Used in routes, ie.: /admin/collections/:slug/edit
-    label: 'Posts' # Used in the UI
-    label_singular: 'Post' # Used in the UI, ie: "New Post"
-    description: >
-      The description is a great place for tone setting, high level information, and editing
-      guidelines that are specific to a collection.
-    folder: '_posts'
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    summary: '{{title}} -- {{year}}/{{month}}/{{day}}'
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - { label: 'Title', name: 'title', widget: 'string', tagname: 'h1' }
-      - {
-          label: 'Publish Date',
-          name: 'date',
-          widget: 'datetime',
-          dateFormat: 'YYYY-MM-DD',
-          timeFormat: 'HH:mm',
-          format: 'YYYY-MM-DD HH:mm',
-        }
-      - label: 'Cover Image'
-        name: 'image'
-        widget: 'image'
-        required: false
-        tagname: ''
-      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content goes here.' }
-    meta:
-      - { label: 'SEO Description', name: 'description', widget: 'text' }
-
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
   - name: 'Module Content' # all the things in one entry, for documentation and quick testing
     label: 'Modules'
     folder: '_modules'
@@ -181,7 +67,7 @@ collections:
       'Create a new module here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree'
     create: true
     meta:
-      - { label: 'SEO Description', name: 'description', widget: 'text' }
+      - { label: 'Module Content', name: 'description', widget: 'text' }
     fields:
       - label: 'Module'
         name: 'module'
@@ -202,42 +88,67 @@ collections:
         fields:
           - label: 'Module Page'
             name: 'page'
-            widget: 'relationKitchenSinkPost'
             collection: 'pages'
             searchFields: ['title', 'body']
             valueField: 'title'
-          - { label: 'Text', name: 'text', widget: 'text' }
           - { label: 'ID', name: 'number', widget: 'number' }
-          - { label: 'Created on', name: 'datetime', widget: 'datetime' }
+          - { label: 'Text', name: 'text', widget: 'text' }
           - { label: 'Image', name: 'image', widget: 'image' }
-          - { label: 'Tags', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
           - label: 'List'
+            description: >
+              'Create a list of items to display'
             name: 'list'
             widget: 'list'
             fields:
-              - { label: 'String', name: 'string', widget: 'string' }
-              - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-              - { label: 'Text', name: 'text', widget: 'text' }
-              - { label: 'Number', name: 'number', widget: 'number' }
               - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-              - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-              - { label: 'Date', name: 'date', widget: 'date' }
-              - { label: 'Image', name: 'image', widget: 'image' }
-              - { label: 'File', name: 'file', widget: 'file' }
-              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-              - label: 'Object'
-                name: 'object'
+          - label: 'User Input'
+            hint: 'Add a section requiring user input'
+            description: >
+              'Add a section requiring user input'
+            name: 'form'
+            widget: 'list'
+            types:
+              - label: 'Yes/No Question'
+                name: 'binary'
                 widget: 'object'
                 fields:
+                  - { label: 'Question Text', name: 'string', widget: 'string' }
+                  - { label: 'Yes Text', name: 'text', widget: 'text' }
+                  - { label: 'No text', name: 'text', widget: 'text' }
+              - label: 'Slider Question'
+                name: 'slider'
+                widget: 'object'
+                fields:
+                  - { label: 'Question Text', name: 'string', widget: 'string' }
+                  - { label: 'Yes Text', name: 'text', widget: 'text' }
+                  - { label: 'High text', name: 'text', widget: 'text' }             
+                  - { label: 'Low text', name: 'text', widget: 'text' }
+                  - { label: 'Range', name: 'number', widget: 'number' }
+                  - { label: 'Created', name: 'datetime', widget: 'datetime' }
+              - label: 'Select and Rank'
+                name: 'rank'
+                widget: 'list'
+                hint: 'User must rank the items in order of preference'
+                fields:
                   - { label: 'String', name: 'string', widget: 'string' }
-                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                  - { label: 'Text', name: 'text', widget: 'text' }
-                  - { label: 'Number', name: 'number', widget: 'number' }
-                  - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-                  - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-                  - { label: 'Date', name: 'date', widget: 'date' }
-                  - { label: 'Image', name: 'image', widget: 'image' }
-                  - { label: 'File', name: 'file', widget: 'file' }
+                  - label: 'List'
+                    name: 'list'
+                    widget: 'list'
+                    hint: 'Add an item to the list'
+                    fields:
+                      - label: 'Related Post'
+                        name: 'post'
+                        widget: 'relationKitchenSinkPost'
+                        collection: 'posts'
+                        searchFields: ['title', 'body']
+                        valueField: 'title'
+                      - { label: 'List Item', name: 'string', widget: 'string' }
+                      - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+              - label: 'Multiple Choice Question'
+                name: 'choice'
+                widget: 'list'
+                fields:
+                  - { label: 'String', name: 'string', widget: 'string' }
                   - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
                   - label: 'List'
                     name: 'list'
@@ -249,120 +160,31 @@ collections:
                         collection: 'posts'
                         searchFields: ['title', 'body']
                         valueField: 'title'
-                      - { label: 'String', name: 'string', widget: 'string' }
+                      - { label: 'List Item', name: 'string', widget: 'string' }
                       - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                      - { label: 'Text', name: 'text', widget: 'text' }
-                      - { label: 'Number', name: 'number', widget: 'number' }
-                      - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-                      - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-                      - { label: 'Date', name: 'date', widget: 'date' }
-                      - { label: 'Image', name: 'image', widget: 'image' }
-                      - { label: 'File', name: 'file', widget: 'file' }
-                      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-                      - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
-                      - label: 'Object'
-                        name: 'object'
-                        widget: 'object'
-                        fields:
-                          - { label: 'String', name: 'string', widget: 'string' }
-                          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                          - { label: 'Text', name: 'text', widget: 'text' }
-                          - { label: 'Number', name: 'number', widget: 'number' }
-                          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-                          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-                          - { label: 'Date', name: 'date', widget: 'date' }
-                          - { label: 'Image', name: 'image', widget: 'image' }
-                          - { label: 'File', name: 'file', widget: 'file' }
-                          - {
-                              label: 'Select',
-                              name: 'select',
-                              widget: 'select',
-                              options: ['a', 'b', 'c'],
-                            }
-              - label: 'User Input'
-                hint: 'Add a section requiring user input'
-                description: >
-                  'Add a section requiring user input'
-                name: 'form'
+              - name: 'Likeart Scale'
                 widget: 'list'
-                types:
-                  - label: 'Yes/No Question'
-                    name: 'binary'
-                    widget: 'object'
-                    fields:
-                      - { label: 'Question Text', name: 'string', widget: 'string' }
-                      - { label: 'Yes Text', name: 'text', widget: 'text' }
-                      - { label: 'No text', name: 'text', widget: 'text' }
-                  - label: 'Slider Question'
-                    name: 'slider'
-                    widget: 'object'
-                    fields:
-                      - { label: 'Question Text', name: 'string', widget: 'string' }
-                      - { label: 'Yes Text', name: 'text', widget: 'text' }
-                      - { label: 'High text', name: 'text', widget: 'text' }             
-                      - { label: 'Low text', name: 'text', widget: 'text' }
-                      - { label: 'Range', name: 'number', widget: 'number' }
-                      - { label: 'Created', name: 'datetime', widget: 'datetime' }
-                  - label: 'Select and Rank'
-                    name: 'rank'
-                    widget: 'list'
-                    hint: 'User must rank the items in order of preference'
-                    fields:
-                      - { label: 'String', name: 'string', widget: 'string' }
-                      - label: 'List'
-                        name: 'list'
-                        widget: 'list'
-                        hint: 'Add an item to the list'
-                        fields:
-                          - label: 'Related Post'
-                            name: 'post'
-                            widget: 'relationKitchenSinkPost'
-                            collection: 'posts'
-                            searchFields: ['title', 'body']
-                            valueField: 'title'
-                          - { label: 'List Item', name: 'string', widget: 'string' }
-                          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                  - label: 'Multiple Choice Question'
-                    name: 'choice'
+                fields:
+                  - { label: 'Select No', name: 'number', widget: 'number' }
+                  - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+                  - label: 'List'
+                    name: 'list'
                     widget: 'list'
                     fields:
-                      - { label: 'String', name: 'string', widget: 'string' }
-                      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-                      - label: 'List'
-                        name: 'list'
-                        widget: 'list'
-                        fields:
-                          - label: 'Related Post'
-                            name: 'post'
-                            widget: 'relationKitchenSinkPost'
-                            collection: 'posts'
-                            searchFields: ['title', 'body']
-                            valueField: 'title'
-                          - { label: 'List Item', name: 'string', widget: 'string' }
-                          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                  - name: 'Likeart Scale'
-                    widget: 'list'
-                    fields:
-                      - { label: 'Select No', name: 'number', widget: 'number' }
-                      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-                      - label: 'List'
-                        name: 'list'
-                        widget: 'list'
-                        fields:
-                          - label: 'Related Post'
-                            name: 'post'
-                            widget: 'relationKitchenSinkPost'
-                            collection: 'posts'
-                            searchFields: ['title', 'body']
-                            valueField: 'title'
-                          - { label: 'List Item', name: 'string', widget: 'string' }
-                          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-                  - name: 'Custom Component'
-                    widget: 'object'
-                    hint: 'This is custom component specific to this page/acitivity'
-                    fields:
-                      - { label: 'Component ID', name: 'number', widget: 'number' }
-                      - { label: 'Component Name', name: 'string', widget: 'string' }
+                      - label: 'Related Post'
+                        name: 'post'
+                        widget: 'relationKitchenSinkPost'
+                        collection: 'posts'
+                        searchFields: ['title', 'body']
+                        valueField: 'title'
+                      - { label: 'List Item', name: 'string', widget: 'string' }
+                      - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+              - name: 'Custom Component'
+                widget: 'object'
+                hint: 'This is custom component specific to this page/acitivity'
+                fields:
+                  - { label: 'Component ID', name: 'number', widget: 'number' }
+                  - { label: 'Component Name', name: 'string', widget: 'string' }
   - name: "navigation"
     label: "Navigation"
     extension: "json"
