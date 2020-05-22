@@ -45,8 +45,9 @@ collections:
               'Add a section requiring user input'
             name: 'form'
             widget: 'list'
-            types:
+            fields:
               - { label: 'Question Text', name: 'string', widget: 'string' }
+            types:
               - label: 'Yes/No Question'
                 name: 'binary'
                 widget: 'object'
