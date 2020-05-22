@@ -196,127 +196,24 @@ collections:
       - label: 'Page'
         name: 'page'
         widget: 'object'
+        description: >
+          Create a new page within this module - routing will be carried out seperately via the decision tree        
         collapsed: true
         fields:
-          - label: 'Related Post'
-            name: 'post'
+          - label: 'Module Page'
+            name: 'page'
             widget: 'relationKitchenSinkPost'
-            collection: 'posts'
+            collection: 'pages'
             searchFields: ['title', 'body']
             valueField: 'title'
-          - { label: 'String', name: 'string', widget: 'string' }
-          - { label: 'Boolean', name: 'boolean', widget: 'boolean', default: false }
           - { label: 'Text', name: 'text', widget: 'text' }
-          - { label: 'Number', name: 'number', widget: 'number' }
-          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-          - { label: 'Date', name: 'date', widget: 'date' }
+          - { label: 'ID', name: 'number', widget: 'number' }
+          - { label: 'Created on', name: 'datetime', widget: 'datetime' }
           - { label: 'Image', name: 'image', widget: 'image' }
-          - { label: 'File', name: 'file', widget: 'file' }
-          - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-      - label: 'User Input'
-        hint: 'Add a section requiring user input'
-        description: >
-          'Add a section requiring user input'
-        name: 'form'
-        widget: 'list'
-        types:
-          - label: 'Yes/No Question'
-            name: 'binary'
-            widget: 'object'
-            fields:
-              - { label: 'Question Text', name: 'string', widget: 'string' }
-              - { label: 'Yes Text', name: 'text', widget: 'text' }
-              - { label: 'No text', name: 'text', widget: 'text' }
-          - label: 'Slider Question'
-            name: 'slider'
-            widget: 'object'
-            fields:
-              - { label: 'Question Text', name: 'string', widget: 'string' }
-              - { label: 'Yes Text', name: 'text', widget: 'text' }
-              - { label: 'High text', name: 'text', widget: 'text' }             
-              - { label: 'Low text', name: 'text', widget: 'text' }
-              - { label: 'Range', name: 'number', widget: 'number' }
-              - { label: 'Created', name: 'datetime', widget: 'datetime' }
-          - label: 'Select and Rank'
-            name: 'rank'
+          - { label: 'Tags', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+          - label: 'List'
+            name: 'list'
             widget: 'list'
-            hint: 'User must rank the items in order of preference'
-            fields:
-              - { label: 'String', name: 'string', widget: 'string' }
-              - label: 'List'
-                name: 'list'
-                widget: 'list'
-                hint: 'Add an item to the list'
-                fields:
-                  - label: 'Related Post'
-                    name: 'post'
-                    widget: 'relationKitchenSinkPost'
-                    collection: 'posts'
-                    searchFields: ['title', 'body']
-                    valueField: 'title'
-                  - { label: 'List Item', name: 'string', widget: 'string' }
-                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-          - label: 'Multiple Choice Question'
-            name: 'choice'
-            widget: 'list'
-            fields:
-              - { label: 'String', name: 'string', widget: 'string' }
-              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-              - label: 'List'
-                name: 'list'
-                widget: 'list'
-                fields:
-                  - label: 'Related Post'
-                    name: 'post'
-                    widget: 'relationKitchenSinkPost'
-                    collection: 'posts'
-                    searchFields: ['title', 'body']
-                    valueField: 'title'
-                  - { label: 'List Item', name: 'string', widget: 'string' }
-                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-          - name: 'Likeart Scale'
-            widget: 'list'
-            fields:
-              - { label: 'Select No', name: 'number', widget: 'number' }
-              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-              - label: 'List'
-                name: 'list'
-                widget: 'list'
-                fields:
-                  - label: 'Related Post'
-                    name: 'post'
-                    widget: 'relationKitchenSinkPost'
-                    collection: 'posts'
-                    searchFields: ['title', 'body']
-                    valueField: 'title'
-                  - { label: 'List Item', name: 'string', widget: 'string' }
-                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-          - name: 'Custom Component'
-            widget: 'object'
-            hint: 'This is custom component specific to this page/acitivity'
-            fields:
-              - { label: 'Component ID', name: 'number', widget: 'number' }
-              - { label: 'Component Name', name: 'string', widget: 'string' }
-
-
-      - label: 'List'
-        name: 'list'
-        widget: 'list'
-        fields:
-          - { label: 'String', name: 'string', widget: 'string' }
-          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-          - { label: 'Text', name: 'text', widget: 'text' }
-          - { label: 'Number', name: 'number', widget: 'number' }
-          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
-          - { label: 'Date', name: 'date', widget: 'date' }
-          - { label: 'Image', name: 'image', widget: 'image' }
-          - { label: 'File', name: 'file', widget: 'file' }
-          - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-          - label: 'Object'
-            name: 'object'
-            widget: 'object'
             fields:
               - { label: 'String', name: 'string', widget: 'string' }
               - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
@@ -328,16 +225,10 @@ collections:
               - { label: 'Image', name: 'image', widget: 'image' }
               - { label: 'File', name: 'file', widget: 'file' }
               - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-              - label: 'List'
-                name: 'list'
-                widget: 'list'
+              - label: 'Object'
+                name: 'object'
+                widget: 'object'
                 fields:
-                  - label: 'Related Post'
-                    name: 'post'
-                    widget: 'relationKitchenSinkPost'
-                    collection: 'posts'
-                    searchFields: ['title', 'body']
-                    valueField: 'title'
                   - { label: 'String', name: 'string', widget: 'string' }
                   - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
                   - { label: 'Text', name: 'text', widget: 'text' }
@@ -348,11 +239,16 @@ collections:
                   - { label: 'Image', name: 'image', widget: 'image' }
                   - { label: 'File', name: 'file', widget: 'file' }
                   - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-                  - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
-                  - label: 'Object'
-                    name: 'object'
-                    widget: 'object'
+                  - label: 'List'
+                    name: 'list'
+                    widget: 'list'
                     fields:
+                      - label: 'Related Post'
+                        name: 'post'
+                        widget: 'relationKitchenSinkPost'
+                        collection: 'posts'
+                        searchFields: ['title', 'body']
+                        valueField: 'title'
                       - { label: 'String', name: 'string', widget: 'string' }
                       - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
                       - { label: 'Text', name: 'text', widget: 'text' }
@@ -362,12 +258,111 @@ collections:
                       - { label: 'Date', name: 'date', widget: 'date' }
                       - { label: 'Image', name: 'image', widget: 'image' }
                       - { label: 'File', name: 'file', widget: 'file' }
-                      - {
-                          label: 'Select',
-                          name: 'select',
-                          widget: 'select',
-                          options: ['a', 'b', 'c'],
-                        }
+                      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+                      - { label: 'Hidden', name: 'hidden', widget: 'hidden', default: 'hidden' }
+                      - label: 'Object'
+                        name: 'object'
+                        widget: 'object'
+                        fields:
+                          - { label: 'String', name: 'string', widget: 'string' }
+                          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                          - { label: 'Text', name: 'text', widget: 'text' }
+                          - { label: 'Number', name: 'number', widget: 'number' }
+                          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+                          - { label: 'Datetime', name: 'datetime', widget: 'datetime' }
+                          - { label: 'Date', name: 'date', widget: 'date' }
+                          - { label: 'Image', name: 'image', widget: 'image' }
+                          - { label: 'File', name: 'file', widget: 'file' }
+                          - {
+                              label: 'Select',
+                              name: 'select',
+                              widget: 'select',
+                              options: ['a', 'b', 'c'],
+                            }
+              - label: 'User Input'
+                hint: 'Add a section requiring user input'
+                description: >
+                  'Add a section requiring user input'
+                name: 'form'
+                widget: 'list'
+                types:
+                  - label: 'Yes/No Question'
+                    name: 'binary'
+                    widget: 'object'
+                    fields:
+                      - { label: 'Question Text', name: 'string', widget: 'string' }
+                      - { label: 'Yes Text', name: 'text', widget: 'text' }
+                      - { label: 'No text', name: 'text', widget: 'text' }
+                  - label: 'Slider Question'
+                    name: 'slider'
+                    widget: 'object'
+                    fields:
+                      - { label: 'Question Text', name: 'string', widget: 'string' }
+                      - { label: 'Yes Text', name: 'text', widget: 'text' }
+                      - { label: 'High text', name: 'text', widget: 'text' }             
+                      - { label: 'Low text', name: 'text', widget: 'text' }
+                      - { label: 'Range', name: 'number', widget: 'number' }
+                      - { label: 'Created', name: 'datetime', widget: 'datetime' }
+                  - label: 'Select and Rank'
+                    name: 'rank'
+                    widget: 'list'
+                    hint: 'User must rank the items in order of preference'
+                    fields:
+                      - { label: 'String', name: 'string', widget: 'string' }
+                      - label: 'List'
+                        name: 'list'
+                        widget: 'list'
+                        hint: 'Add an item to the list'
+                        fields:
+                          - label: 'Related Post'
+                            name: 'post'
+                            widget: 'relationKitchenSinkPost'
+                            collection: 'posts'
+                            searchFields: ['title', 'body']
+                            valueField: 'title'
+                          - { label: 'List Item', name: 'string', widget: 'string' }
+                          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                  - label: 'Multiple Choice Question'
+                    name: 'choice'
+                    widget: 'list'
+                    fields:
+                      - { label: 'String', name: 'string', widget: 'string' }
+                      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+                      - label: 'List'
+                        name: 'list'
+                        widget: 'list'
+                        fields:
+                          - label: 'Related Post'
+                            name: 'post'
+                            widget: 'relationKitchenSinkPost'
+                            collection: 'posts'
+                            searchFields: ['title', 'body']
+                            valueField: 'title'
+                          - { label: 'List Item', name: 'string', widget: 'string' }
+                          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                  - name: 'Likeart Scale'
+                    widget: 'list'
+                    fields:
+                      - { label: 'Select No', name: 'number', widget: 'number' }
+                      - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+                      - label: 'List'
+                        name: 'list'
+                        widget: 'list'
+                        fields:
+                          - label: 'Related Post'
+                            name: 'post'
+                            widget: 'relationKitchenSinkPost'
+                            collection: 'posts'
+                            searchFields: ['title', 'body']
+                            valueField: 'title'
+                          - { label: 'List Item', name: 'string', widget: 'string' }
+                          - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                  - name: 'Custom Component'
+                    widget: 'object'
+                    hint: 'This is custom component specific to this page/acitivity'
+                    fields:
+                      - { label: 'Component ID', name: 'number', widget: 'number' }
+                      - { label: 'Component Name', name: 'string', widget: 'string' }
   - name: "navigation"
     label: "Navigation"
     extension: "json"
