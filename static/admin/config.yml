@@ -105,7 +105,6 @@ collections:
     folder: 'assets/content/moduletest/'
     create: true
     delete: false
-    create: true
     editor:
       preview: false
     fields:
