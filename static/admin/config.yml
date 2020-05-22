@@ -144,76 +144,6 @@ collections:
                   { label: "Image Description", name: "imageAlt", widget: "string" },
                 ],
             }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Upcoming Meetup Heading", name: "upcomingMeetupHeading", widget: "string" }
-          - { label: "No Upcoming Meetup Text", name: "noUpcomingMeetupText", hint: "This text will be displayed when there are no upcoming meetups", required: true, widget: "string" }
-          - { label: "Maps Note", name: "mapsNote", required: true, widget: "string" }
-          - {
-              label: "Call to Actions",
-              name: "callToActions",
-              required: true,
-              widget: "object",
-              fields:
-                [
-                  {
-                    label: "First CTA",
-                    name: "firstCTA",
-                    required: true,
-                    widget: "object",
-                    fields:
-                      [
-                        { label: "Heading", name: "heading", widget: "string" },
-                        { label: "Sub Heading", name: "subHeading", widget: "string" },
-                        {
-                          label: "Link Type",
-                          name: "linkType",
-                          widget: "select",
-                          options: ["internal", "external"],
-                        },
-                        {
-                          label: "Link URL",
-                          name: "linkURL",
-                          widget: "string",
-                          hint: "Use a relative URL (e.g. /about) if the link is an internal link.",
-                        }
-                      ]
-                  },
-                  {
-                    label: "Second CTA",
-                    name: "secondCTA",
-                    required: true,
-                    widget: "object",
-                    fields:
-                      [
-                        { label: "Heading", name: "heading", widget: "string" },
-                        { label: "Sub Heading", name: "subHeading", widget: "string" },
-                        {
-                          label: "Link Type",
-                          name: "linkType",
-                          widget: "select",
-                          options: ["internal", "external"],
-                        },
-                        {
-                          label: "Link URL",
-                          name: "linkURL",
-                          widget: "string",
-                          hint: "Use a relative URL (e.g. /about) if the link is an internal link.",
-                        }
-                      ]
-                  }
-                ],
-            }
-          - {
-              label: "SEO & Meta",
-              name: "seo",
-              widget: "object",
-              fields:
-                [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "description", widget: "string" },
-                ],
-            }
   - name: 'posts' # Used in routes, ie.: /admin/collections/:slug/edit
     label: 'Posts' # Used in the UI
     label_singular: 'Post' # Used in the UI, ie: "New Post"
@@ -239,7 +169,6 @@ collections:
         widget: 'image'
         required: false
         tagname: ''
-
       - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content goes here.' }
     meta:
       - { label: 'SEO Description', name: 'description', widget: 'text' }
@@ -251,6 +180,8 @@ collections:
     description: >
       'Create a new module here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree'
     create: true
+    meta:
+      - { label: 'SEO Description', name: 'description', widget: 'text' }
     fields:
       - label: 'Module'
         name: 'module'
@@ -263,6 +194,8 @@ collections:
       - { label: 'Boolean', name: 'boolean', widget: 'boolean', default: true }
       - { label: 'Text', name: 'text', widget: 'text', hint: 'Description of the module - displayed at the beginning' }
       - { label: 'Number', name: 'number', widget: 'number', hint: 'The ID number of this module' }
+      - { label: 'Related image', name: 'image', widget: 'image', required: false, tagname: ''}
+      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content goes here.' }
       - { label: 'Created On', name: 'datetime', widget: 'datetime' }
       - { label: 'Decision Tree Image', name: 'image', widget: 'image' }
       - { label: 'Decision Tree JSON', name: 'file', widget: 'file' }
@@ -295,17 +228,6 @@ collections:
           - { label: 'Image', name: 'image', widget: 'image' }
           - { label: 'File', name: 'file', widget: 'file' }
           - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-      - label: 'Form Type'
-        name: 'form_type'
-        widget: 'select'
-        default: 'binary'
-        options:
-          - { label: 'Binary', value: 'binary' }
-          - { label: 'Slider', value: 'slider' }
-          - { label: 'Rank', value: 'rank' }
-          - { label: 'MCQ', value: 'MCQ' }
-          - { label: 'Likeart', value: 'likeart' }
-          - { label: 'Custom', value: 'custom' }
       - label: 'List'
         name: 'list'
         widget: 'list'
@@ -374,23 +296,13 @@ collections:
                           widget: 'select',
                           options: ['a', 'b', 'c'],
                         }
-      - label: 'Form Type'
+      - label: 'User Input'
+        hint: 'Add a section requiring user input'
+        description: >
+          'Add a section requiring user input'
         name: 'form'
         widget: 'list'
         types:
-
-          - label: 'Form Type'
-            name: 'form_type'
-            widget: 'select'
-            default: 'binary'
-            options:
-              - { label: 'Binary', value: 'binary' }
-              - { label: 'Slider', value: 'slider' }
-              - { label: 'Rank', value: 'rank' }
-              - { label: 'MCQ', value: 'MCQ' }
-              - { label: 'Likeart', value: 'likeart' }
-              - { label: 'Custom', value: 'custom' }
-
           - label: 'Yes/No Question'
             name: 'binary'
             widget: 'object'
@@ -411,13 +323,68 @@ collections:
           - label: 'Select and Rank'
             name: 'rank'
             widget: 'list'
+            hint: 'User must rank the items in order of preference'
+            fields:
+              - { label: 'String', name: 'string', widget: 'string' }
+              - label: 'List'
+                name: 'list'
+                widget: 'list'
+                hint: 'Add an item to the list'
+                fields:
+                  - label: 'Related Post'
+                    name: 'post'
+                    widget: 'relationKitchenSinkPost'
+                    collection: 'posts'
+                    searchFields: ['title', 'body']
+                    valueField: 'title'
+                  - { label: 'List Item', name: 'string', widget: 'string' }
+                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+          - label: 'Multiple Choice Question'
+            name: 'choice'
+            widget: 'list'
             fields:
               - { label: 'String', name: 'string', widget: 'string' }
               - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+              - label: 'List'
+                name: 'list'
+                widget: 'list'
+                fields:
+                  - label: 'Related Post'
+                    name: 'post'
+                    widget: 'relationKitchenSinkPost'
+                    collection: 'posts'
+                    searchFields: ['title', 'body']
+                    valueField: 'title'
+                  - { label: 'List Item', name: 'string', widget: 'string' }
+                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+          - name: 'Likeart Scale'
+            widget: 'list'
+            fields:
+              - { label: 'Select No', name: 'number', widget: 'number' }
+              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
+              - label: 'List'
+                name: 'list'
+                widget: 'list'
+                fields:
+                  - label: 'Related Post'
+                    name: 'post'
+                    widget: 'relationKitchenSinkPost'
+                    collection: 'posts'
+                    searchFields: ['title', 'body']
+                    valueField: 'title'
+                  - { label: 'List Item', name: 'string', widget: 'string' }
+                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+          - name: 'Custom Component'
+            widget: 'object'
+            hint: 'This is custom component specific to this page/acitivity'
+            fields:
+              - { label: 'Component ID', name: 'number', widget: 'number' }
+              - { label: 'Component Name', name: 'string', widget: 'string' }
   - name: "navigation"
     label: "Navigation"
     extension: "json"
     format: "json"
+    create: true
     folder: src/data/navigation
     slug: "{{slug}}"
     editor:
