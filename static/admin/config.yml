@@ -14,16 +14,13 @@ collections:
     folder: '_modules'
     label_singular: 'Module'
     description: >
-      'Create a new module here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree'
+      Create a new module here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree
     create: true
     meta:
       - { label: 'Module Content', name: 'description', widget: 'text' }
     fields:
-      - label: 'Module'
-        name: 'module'
       - { label: 'Title', name: 'title', widget: 'string', hint: 'Name of the module'}
-      - { label: 'Text', name: 'text', widget: 'text', hint: 'Description of the module - displayed at the beginning' }
-      - { label: 'Number', name: 'number', widget: 'number', hint: 'The ID number of this module' }
+      - { label: 'ID', name: 'id', widget: 'number', hint: 'Identifier for this module' }
       - { label: 'Created On', name: 'datetime', widget: 'datetime' }
       - label: 'Page'
         name: 'page'
@@ -33,11 +30,6 @@ collections:
           Create a new page within this module - routing will be carried out seperately via the decision tree        
         collapsed: true
         fields:
-          - label: 'Module Page'
-            name: 'page'
-            collection: 'pages'
-            searchFields: ['title', 'body']
-            valueField: 'title'
           - { label: 'ID', name: 'number', widget: 'number' }
           - { label: 'Text', name: 'text', widget: 'text' }
           - { label: 'Image', name: 'image', widget: 'image' }
