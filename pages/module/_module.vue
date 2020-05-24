@@ -41,12 +41,11 @@
   </transition>
 </template>
 <script>
+// Input components
 import Binary from '~/components/input/BinarySelect.vue'
 import MultipleChoice from '~/components/input/MultipleChoice.vue'
-// import MultipleChoiceSingle from '~/components/input/MultipleChoiceSingle.vue'
-// import MultiBinarySelect from '~/components/input/MultiBinarySelect.vue'
-// import MultiSlider from '~/components/input/BinarySelect.vue'
 
+// Custom components
 import CustomExample from '~/components/custom/CustomExample.vue'
 
 export default {
@@ -64,11 +63,8 @@ export default {
     }
   },
   components: {
-    // MultiSlider,
     Binary,
     MultipleChoice,
-    // MultipleChoiceSingle,
-    // MultiBinarySelect,
     CustomExample
   },
   methods: {
