@@ -44,8 +44,8 @@ collections:
           Create a new page within this module - routing will be carried out seperately via the decision tree        
         collapsed: true
         fields:
-          - { label: 'ID', name: 'number', widget: 'number' }
-          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
+          - { label: 'ID', name: 'id', widget: 'string', hint: 'ID reference for this page' }
+          - { label: 'Introduction', name: 'introduction', widget: 'markdown', hint: 'Introductory text' }
           - label: 'List'
             description: >
               'Create a list of items to display'
@@ -60,19 +60,20 @@ collections:
             name: 'form'
             widget: 'list'
             fields:
-              - { label: 'Question Text', name: 'item', widget: 'string' }
+              - { label: 'Question Text', name: 'question_text', widget: 'string' }
+              - { label: 'Yes Text', name: 'yes_text', widget: 'string' }
+              - { label: 'No Text', name: 'no_text', widget: 'string' }
             types:
               - label: 'Yes/No Question'
-              
                 name: 'binary'
                 widget: 'object'
                 hint: Create a yes/no format question
                 description: >
                   Create a yes/no format question
                 fields:
-                  - { label: 'Yes Text', name: 'yes', widget: 'text' }
-                  - { label: 'No text', name: 'no', widget: 'text' }
-                  - { label: 'Question Text', name: 'string', widget: 'string' }
+                  - { label: 'Question Text', name: 'question_text', widget: 'string' }
+                  - { label: 'Yes Text', name: 'yes_text', widget: 'string' }
+                  - { label: 'No Text', name: 'no_text', widget: 'string' }
               - label: 'Slider Question'
                 name: 'slider'
                 hint: Create a slider format question
@@ -109,8 +110,9 @@ collections:
                 fields:
                   - { label: 'Question Text', name: 'item', widget: 'string' }
                   - { label: 'List Item', name: 'string', widget: 'string' }
-              - name: 'Likeart Scale'
+              - label: 'Likeart Scale'
                 widget: 'list'
+                name: 'likeart'
                 hint: Create a Likeart Scale question
                 description: >
                   Create a Likeart Scale question
@@ -138,3 +140,5 @@ collections:
                 fields:
                   - { label: 'Component ID', name: 'number', widget: 'number' }
                   - { label: 'Component Name', name: 'string', widget: 'string' }
+          - { label: 'Custom Component', name: 'is_custom_component', widget: 'boolean', hint: 'This contains a custom component' }
+          - { label: 'Custom Component ID', name: 'is_custom_component', widget: 'text', hint: 'The name of the custom object' }

@@ -4,7 +4,7 @@
   "id": 1,
   "page": [
     {
-      "number": 1,
+      "id": "1.0",
       "text": "asdasdsadafadfs",
       "list": [
         {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "number": 1,
+      "id": "1.1",
       "text": "asdasdsadafadfs",
       "list": [
         {
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "number": 1,
+      "id": "1.3",
       "text": "asdasdsadafadfs",
       "list": [
         {
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "number": 1,
+      "id": "1.4",
       "text": "asdasdsadafadfs",
       "list": [
         {
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "number": 1,
+      "id": "1.5",
       "text": "asdasdsadafadfs",
       "list": [
         {
@@ -79,7 +79,7 @@
       ]
     },
     {
-      "number": 1,
+      "id": "1.6",
       "text": "asdasdsadafadfs",
       "list": [
         {

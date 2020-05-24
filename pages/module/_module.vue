@@ -1,23 +1,58 @@
 <template>
   <article>
-    <h1>{{moduler.title}}</h1>
-    <h1>Page Count {{moduler.page.length}}</h1>
-    <h1>{{moduler.page[page]}}</h1>
-    <div v-html="$md.render(moduler.page[page].list[0].markdown)" />
-    <div class="text-center">
-      <button @click="nextPage(page+1)">next</button>
+    <!-- Module Description Text -->
+    <h1>{{moduler.title}} - Page Count {{moduler.page.length}}</h1>
+    <!-- Page Intro Text -->
+    <div v-html="$md.render(moduler.page[page].text)" />
+    <!-- Form Types -->
+    <div v-if="page.form.length > 0">
+      <!-- Yes/No Question -->
+      <div v-if="page.form.type == 'binary'">
+        <binary-select @selected="selected"></binary-select>
+      </div>
+      <!-- Slider Question -->
+      <div v-if="page.form.type == 'slider'">
+        <binary-select @selected="selected"></binary-select>
+      </div>
+      <!-- Rank Question -->
+      <div v-if="page.form.type == 'rank'">
+        <binary-select @selected="selected"></binary-select>
+      </div>
+      <!-- Choice Question -->
+      <div v-if="page.form.type == 'choice'">
+        <binary-select @selected="selected"></binary-select>
+      </div>
+      <!-- Custom Question -->
+      <div v-if="page.form.type == 'custom'">
+        <binary-select @selected="selected"></binary-select>
+      </div>
+      <div class="text-center">
+        <button @click="nextPage(page+1)">next</button>
+      </div>
     </div>
+    <div v-if="page.form.is_custom == true"></div>
   </article>
 </template>
 <script>
+import BinarySelect from '~/components/custom/BinarySelect'
+import MultipleChoice from '~/components/custom/MultipleChoice'
+import MultipleChoiceSingle from '~/components/custom/MultipleChoiceSingle'
+import MultiBinarySelect from '~/components/custom/MultiBinarySelect'
+import BinarySelect from '~/components/custom/BinarySelect'
+import BinarySelect from '~/components/custom/BinarySelect'
+import BinarySelect from '~/components/custom/BinarySelect'
+
 export default {
   data: () => ({
     page_number: 0
   }),
   computed: {
     page() {
-      return this.page_number
+      return moduler.page[this.page_number]
     }
+  },
+  components: {
+    BinarySelect
   },
   methods: {
     nextPage() {
