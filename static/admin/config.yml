@@ -139,8 +139,8 @@ collections:
 
 
 
-  - name: 'Page Content' 
-    label: 'Module 1'
+  - name: 'Module Content'
+    label: 'Module Content'
     folder: 'assets/content/_pages'
     extension: "json"
     label_singular: 'Page'
@@ -201,7 +201,7 @@ collections:
                 name: 'list'
                 widget: 'list'
                 hint: 'Add an item to the list'
-                fields:
+                field:
                   - { label: 'List Item', name: 'item', widget: 'string' }
 
           - label: 'Multiple Choice Question'
