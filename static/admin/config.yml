@@ -104,6 +104,7 @@ collections:
                 description: >
                   Create a multiple choice question
                 fields:
+                  - {label: "Test list item", name: "tags", widget: "list"}
                   - { label: 'Question Text', name: 'item', widget: 'string' }
                   - { label: 'List Item', name: 'string', widget: 'string' }
               - label: 'Likeart Scale'
