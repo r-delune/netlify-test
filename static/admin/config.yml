@@ -28,6 +28,8 @@ collections:
     description: >
       Create a new module here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree
     create: true
+    editor:
+      preview: false
     meta:
       - { label: 'Module Content', name: 'description', widget: 'text' }
     fields:

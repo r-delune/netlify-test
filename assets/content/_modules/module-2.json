@@ -4,7 +4,7 @@
   "id": 2,
   "page": [
     {
-      "number": 1,
+      "id": 1,
       "markdown": "This is an example Yes/No question",
       "form": [
         {
