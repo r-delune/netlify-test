@@ -17,15 +17,22 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   generate: {
-    routes: function() {
-      const fs = require('fs')
-      return fs.readdirSync('./assets/content/blog').map(file => {
+    routes: function () {
+      const fs = require('fs');
+      const path = require('path');
+      return fs.readdirSync('./assets/content/_modules').map(file => {
         return {
-          route: `/blog/${file.slice(2, -5)}`,
-          payload: require(`./assets/content/blog/${file}`)
-        }
-      })
-    }
+          route: `/module/${path.parse(file).name}`, // Return the slug
+          payload: require(`./assets/content/_modules/${file}`),
+        };
+      });
+      // return fs.readdirSync('./assets/content/_pages').map(file => {
+      //   return {
+      //     route: `/page/${path.parse(file).name}`, // Return the slug
+      //     payload: require(`./assets/content/_pages/${file}`),
+      //   };
+      // });
+    },
   },
   /*
    ** Customize the progress-bar color
@@ -57,6 +64,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   }
 }
