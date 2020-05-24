@@ -1,14 +1,30 @@
 <template>
   <article>
     <h1>{{moduler.title}}</h1>
-    <h1>{{moduler}}</h1>
-
-    <h1>{{moduler.page}}</h1>
-    <div v-html="$md.render(moduler.page[0].list[0].markdown)" />
+    <h1>Page Count {{moduler.page.length}}</h1>
+    <h1>{{moduler.page[page]}}</h1>
+    <div v-html="$md.render(moduler.page[page].list[0].markdown)" />
+    <div class="text-center">
+      <button @click="nextPage(page+1)">next</button>
+    </div>
   </article>
 </template>
 <script>
 export default {
+  data: () => ({
+    page_number: 0
+  }),
+  computed: {
+    page() {
+      return this.page_number
+    }
+  },
+  methods: {
+    nextPage() {
+      console.log('moving to next page')
+      this.page_number++
+    }
+  },
   async asyncData({ params, payload }) {
     console.log('async data')
     console.log(params)
