@@ -59,10 +59,6 @@ collections:
               'Add a section requiring user input'
             name: 'form'
             widget: 'list'
-            fields:
-              - { label: 'Question Text', name: 'question_text', widget: 'string' }
-              - { label: 'Yes Text', name: 'yes_text', widget: 'string' }
-              - { label: 'No Text', name: 'no_text', widget: 'string' }
             types:
               - label: 'Yes/No Question'
                 name: 'binary'
@@ -74,12 +70,13 @@ collections:
                   - { label: 'Question Text', name: 'question_text', widget: 'string' }
                   - { label: 'Yes Text', name: 'yes_text', widget: 'string' }
                   - { label: 'No Text', name: 'no_text', widget: 'string' }
+                  
               - label: 'Slider Question'
                 name: 'slider'
                 hint: Create a slider format question
                 description: >
                   Create a slider format question
-                widget: 'object'
+                widget: 'list'
                 fields:
                   - { label: 'Question Text', name: 'text', widget: 'string' }
                   - { label: 'Yes Text', name: 'yes', widget: 'text' }
