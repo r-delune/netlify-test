@@ -29,7 +29,7 @@
         </div>
       </div>
       <!-- Show Custom Component -->
-      <div v-if="page_number.is_custom == true">
+      <div v-if="page_number.is_custom_component == true">
         <component :is="page.custom_component_id"></component>
       </div>
       <div class="text-center">

@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     changedSliders() {
+      this.$emit('selected', sliders.slider1)
       console.log('changed sliders')
     }
   }

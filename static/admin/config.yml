@@ -214,6 +214,7 @@ collections:
               - { label: 'Question Text', name: 'question_text', widget: 'string' }
               - { label: 'List Item', name: 'items', widget: 'string' }
               - { label: 'Complete after', name: 'number', hint: 'Mark question as completed after count', widget: 'number' }
+
           - label: 'Likeart Scale'
             widget: 'list'
             name: 'likeart'
@@ -227,9 +228,10 @@ collections:
                 name: 'list item'
                 widget: 'list'
                 fields:
-                  - label: 'Related Post'
-                  - { label: 'List Item', name: 'string', widget: 'string' }
+                  - label: 'Likeart Items'
+                  - { label: 'List Item', name: 'items', widget: 'string' }
                   - { label: 'Range', name: 'range', widget: 'number' }
+
           - name: 'Custom Input'
             widget: 'object'
             description: >

@@ -5,7 +5,6 @@
     "form": [
         {
             "type": "slider",
-            "datetime": "2020-05-24T20:54:20.045Z",
             "text": "This is an example slider question",
             "low_label": "not good",
             "high_label": "good",
