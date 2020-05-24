@@ -17,15 +17,15 @@
         </div>
         <!-- Rank Question -->
         <div v-if="qs.type == 'rank'">
-          <!-- <rank :settings="qs" @selected="selected"></rank> -->
+          <rank :settings="qs" @selected="selected"></rank>
         </div>
         <!-- Choice Question -->
         <div v-if="qs.type == 'choice'">
-          <!-- <multiple-choice @selected="selected"></multiple-choice> -->
+          <multiple-choice @selected="selected"></multiple-choice>
         </div>
         <!-- Custom Question -->
         <div v-if="qs.type == 'custom'">
-          <!-- <binary-select @selected="selected"></binary-select> -->
+          <binary-select @selected="selected"></binary-select>
         </div>
       </div>
       <!-- Show Custom Component -->
@@ -34,6 +34,7 @@
       </div>
       <div class="text-center">
         <button @click="nextPage(page+1)">next</button>
+        <!-- <nuxt-link to="/page/page-2">Home page</nuxt-link> -->
       </div>
     </article>
   </transition>
@@ -66,8 +67,11 @@ export default {
   },
   methods: {
     nextPage() {
-      console.log('moving to next page')
+      console.log('moving to next page ' + '/page/page-' + this.page_number)
       this.page_number++
+      this.$router.push({
+        path: '/page/page-' + this.page_number
+      })
     },
     selected(answer) {
       console.log('Answer has recieved callback: ' + answer)

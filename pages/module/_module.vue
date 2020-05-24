@@ -33,7 +33,8 @@
         <component :is="page.custom_component_id"></component>
       </div>
       <div class="text-center">
-        <button @click="nextPage(page+1)">next</button>
+        <nuxt-link to="'/page-2'">Home page</nuxt-link>
+        <!-- <button @click="nextPage(page+1)">next</button> -->
       </div>
     </article>
   </transition>
@@ -58,7 +59,7 @@ export default {
     ]
   }),
   computed: {
-    page() {
+    page_id() {
       return this.moduler.page[this.page_number]
     }
   },
