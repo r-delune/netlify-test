@@ -79,14 +79,13 @@ collections:
                 widget: 'list'
                 fields:
                   - { label: 'Question Text', name: 'text', widget: 'string' }
-                  - { label: 'Yes Text', name: 'yes', widget: 'text' }
                   - { label: 'Label (Low)', name: 'low_label', widget: 'text' }             
                   - { label: 'Label (High)', name: 'high_label', widget: 'text' }
                   - { label: 'Range', name: 'number', widget: 'number' }
-                  - { label: 'Created', name: 'datetime', widget: 'datetime' }
               - label: 'Select and Rank'
                 name: 'rank'
                 widget: 'list'
+                create: true
                 description: >
                   Create a select and rank question
                 hint: 'User must rank the items in order of preference'
@@ -124,9 +123,6 @@ collections:
                       - label: 'Related Post'
                         name: 'post'
                         widget: 'relationKitchenSinkPost'
-                        collection: 'posts'
-                        searchFields: ['title', 'body']
-                        valueField: 'title'
                       - { label: 'List Item', name: 'string', widget: 'string' }
                       - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
               - name: 'Custom Input'

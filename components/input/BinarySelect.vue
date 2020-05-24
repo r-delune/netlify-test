@@ -7,7 +7,10 @@
           @click.end="select('Yes', 0)"
           :class="{'active': isClicked[0]}"
           size="sm"
-        >Yes</base-button>
+        >
+          Yes
+          {{settings}}
+        </base-button>
         <base-button
           tag="a"
           @click.end="select('No', 1)"
@@ -30,17 +33,6 @@ export default {
   },
   methods: {
     select(item, index) {
-      this.$set(this.isClicked, index, this.isClicked[index])
-
-      if (index == 0) {
-        this.$set(this.isClicked, 0, !this.isClicked[0])
-        //this.$set(this.isClicked, 0, !this.isClicked[1])
-      } else {
-        this.$set(this.isClicked, 1, !this.isClicked[1])
-        //this.$set(this.isClicked, 0, this.isClicked[0])
-      }
-
-      console.log('inner selected answer ' + item)
       this.$emit('selected', item)
     }
   }

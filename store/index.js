@@ -3,9 +3,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setModules(state, list) {
-    console.log('setting modules')
-    console.log(list)
+  setModule(state, list) {
     state.modules = list
   }
 }
@@ -22,6 +20,6 @@ export const actions = {
       res.slug = key.slice(2, -5)
       return res
     })
-    await commit('setModules', modules)
+    await commit('setModule', modules)
   }
 }
