@@ -140,10 +140,10 @@ collections:
 
 
   - name: 'Page Content' 
-    label: 'Page'
+    label: 'Module 1 Pages'
     folder: 'assets/content/_pages'
     extension: "json"
-    label_singular: 'Page'
+    label_singular: 'Module 1 Page'
     description: >
       Create a new page here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree
     create: true
