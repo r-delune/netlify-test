@@ -9,7 +9,19 @@
       "text": "This is an example slider question",
       "low_label": "not good",
       "high_label": "good",
-      "range": 9
+      "range": 9,
+      "list": [
+        {
+          "item": "first item "
+        },
+        {
+          "item": "second item"
+        },
+        {
+          "item": "third item"
+        }
+      ],
+      "string": "could you rank ythese"
     }
   ],
   "is_custom_component": true,
