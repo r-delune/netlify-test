@@ -1,15 +1,27 @@
 {
-    "title": "page-5",
-    "id": "5",
-    "introduction": "this is a page 5 question - rank things",
-    "form": [
+  "title": "page-5",
+  "id": "5",
+  "introduction": "this is a page 5 question - rank things",
+  "form": [
+    {
+      "type": "rank",
+      "text": "This is an example rank question",
+      "low_label": "not good",
+      "high_label": "good",
+      "items": "good",
+      "range": 5,
+      "string": "select and rank these items",
+      "list": [
         {
-            "type": "rank",
-            "text": "This is an example rank question",
-            "low_label": "not good",
-            "high_label": "good",
-            "items": "good",
-            "range": 5
+          "item": "item 1"
+        },
+        {
+          "item": "item 2"
+        },
+        {
+          "item": "item 3"
         }
-    ]
+      ]
+    }
+  ]
 }
