@@ -1,0 +1,14 @@
+{
+  "id": "1.1",
+  "introduction": "could you  please?",
+  "form": [
+    {
+      "type": "binary",
+      "question_text": "hello",
+      "yes_text": "yes1",
+      "no_text": "no1"
+    }
+  ],
+  "is_custom_component": true,
+  "custom_component_id": "CustomExample"
+}
