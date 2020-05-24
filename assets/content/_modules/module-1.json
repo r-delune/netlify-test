@@ -13,8 +13,10 @@
       ],
       "form": [
         {
-          "type": "choice",
-          "string": "ASDFASDFASDFASDF"
+          "type": "binary",
+          "string": "ASDFASDFASDFASDF",
+          "yes_text": "yestest",
+          "no_text": "yestest"
         }
       ]
     },
