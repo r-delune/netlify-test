@@ -1,15 +1,8 @@
 {
   "title": "page-1",
   "id": "1",
-  "introduction": "could you  please?",
-  "form": [
-    {
-      "type": "binary",
-      "question_text": "hello",
-      "yes_text": "yes1",
-      "no_text": "no1"
-    }
-  ],
+  "introduction": "welcome to the module",
+  "form": [],
   "is_custom_component": true,
   "custom_component_id": "CustomExample"
 }

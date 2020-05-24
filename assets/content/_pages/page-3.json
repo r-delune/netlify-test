@@ -1,13 +1,17 @@
 {
-  "title": "page-3",
-  "id": "3",
-  "introduction": "hello",
+  "title": "page-2",
+  "id": "2",
+  "introduction": "could you  please?",
   "form": [
     {
-      "type": "binary",
-      "question_text": "what is ssadsadasd",
-      "yes_text": "yes",
-      "no_text": "no"
+      "type": "rank",
+      "datetime": "2020-05-24T20:54:20.045Z",
+      "text": "This is an example slider question",
+      "low_label": "not good",
+      "high_label": "good",
+      "range": 9
     }
-  ]
+  ],
+  "is_custom_component": true,
+  "custom_component_id": "CustomExample"
 }

@@ -1,0 +1,15 @@
+{
+    "title": "page-5",
+    "id": "5",
+    "introduction": "this is a page 5 question - rank things",
+    "form": [
+        {
+            "type": "rank",
+            "text": "This is an example rank question",
+            "low_label": "not good",
+            "high_label": "good",
+            "items": "good",
+            "range": 5
+        }
+    ]
+}

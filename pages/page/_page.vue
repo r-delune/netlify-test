@@ -1,43 +1,41 @@
 <template>
-  <transition name="slide-fade" mode="out-in">
-    <article>
-      <!-- Module Description Text -->
-      <h1>{{page}} -</h1>
-      <!-- Page Intro Text -->
-      <div v-html="$md.render(page.introduction)" />
-      <!-- Form Types -->
-      <div v-for="(qs, i) in page.form" :key="i">
-        <!-- Yes/No Question -->
-        <div v-if="qs.type == 'binary'">
-          <binary :settings="qs" @selected="selected"></binary>
-        </div>
-        <!-- Slider Question -->
-        <div v-if="qs.type == 'slider'">
-          <slider :settings="qs" @selected="selected"></slider>
-        </div>
-        <!-- Rank Question -->
-        <div v-if="qs.type == 'rank'">
-          <rank :settings="qs" @selected="selected"></rank>
-        </div>
-        <!-- Choice Question -->
-        <div v-if="qs.type == 'choice'">
-          <multiple-choice @selected="selected"></multiple-choice>
-        </div>
-        <!-- Custom Question -->
-        <div v-if="qs.type == 'custom'">
-          <binary-select @selected="selected"></binary-select>
-        </div>
+  <article>
+    <!-- <transition name="slide-fade" mode="out-in"> -->
+    <!-- Module Description Text -->
+    <h1>{{page}} -</h1>
+    <!-- Page Intro Text -->
+    <div v-html="$md.render(page.introduction)" />
+    <!-- Form Types -->
+    <div v-for="(qs, i) in page.form" :key="i">
+      <!-- Yes/No Question -->
+      <div v-if="qs.type == 'binary'">
+        <binary :settings="qs" @selected="selected"></binary>
       </div>
-      <!-- Show Custom Component -->
-      <div v-if="page_number.is_custom == true">
-        <component :is="page.custom_component_id"></component>
+      <!-- Slider Question -->
+      <div v-if="qs.type == 'slider'">
+        <slider :settings="qs" @selected="selected"></slider>
       </div>
-      <div class="text-center">
-        <button @click="nextPage(page+1)">next</button>
-        <!-- <nuxt-link to="/page/page-2">Home page</nuxt-link> -->
+      <!-- Rank Question -->
+      <div v-if="qs.type == 'rank'">
+        <rank :settings="qs" @selected="selected"></rank>
       </div>
-    </article>
-  </transition>
+      <!-- Choice Question -->
+      <div v-if="qs.type == 'choice'">
+        <multiple-choice @selected="selected"></multiple-choice>
+      </div>
+      <!-- Custom Question -->
+      <div v-if="qs.type == 'custom'">
+        <binary-select @selected="selected"></binary-select>
+      </div>
+    </div>
+    <!-- Show Custom Component -->
+    <div v-if="page_number.is_custom == true">
+      <component :is="page.custom_component_id"></component>
+    </div>
+    <div class="text-center">
+      <button @click="nextPage()">next</button>
+    </div>
+  </article>
 </template>
 <script>
 // Input components
@@ -67,16 +65,10 @@ export default {
   },
   methods: {
     nextPage() {
-      console.log('moving from page ' + '/page/page-' + this.page.id)
-
       var curr_page = this.page.id.replace('page-', '')
-      console.log(curr_page) //prints: 123
       curr_page++
       console.log('moving to page ' + '/page/page-' + curr_page)
-
-      this.$router.push({
-        path: '/page/page-' + curr_page
-      })
+      this.$router.push({ path: '/page/page-' + curr_page })
     },
     selected(answer) {
       console.log('Answer has recieved callback: ' + answer)
@@ -93,21 +85,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.slide-fade-enter-active {
-  transition: all 0.1s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter,
-.slide-fade-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
-}
-.footer {
-  color: #525f7f;
-  border: none;
-  padding: 10px;
-}
-</style>
