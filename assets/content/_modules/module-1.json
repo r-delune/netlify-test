@@ -15,8 +15,7 @@
         {
           "type": "rank",
           "question_text": "Please check yes or no",
-          "yes_text": "yes1",
-          "no_text": "no1"
+          "items": "yes1"
         }
       ],
       "id": "1.2",

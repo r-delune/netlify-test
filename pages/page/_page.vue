@@ -57,11 +57,6 @@ export default {
       'Have you ever had blackouts or flashbacks as a result of drug use?'
     ]
   }),
-  computed: {
-    page() {
-      return this.moduler.page[this.page_number]
-    }
-  },
   components: {
     Rank,
     Binary,
@@ -81,10 +76,10 @@ export default {
   async asyncData({ params, payload }) {
     console.log('async data')
     console.log(params)
-    if (payload) return { module: payload }
+    if (payload) return { page: payload }
     else
       return {
-        moduler: await require(`~/assets/content/_modules/${params.module}.json`)
+        page: await require(`~/assets/content/_pages/${params.page}.json`)
       }
   }
 }
