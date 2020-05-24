@@ -34,7 +34,7 @@ collections:
       - { label: 'Module Content', name: 'description', widget: 'text' }
     fields:
       - { label: 'Title', name: 'title', widget: 'string', hint: 'Name of the module'}
-      - { label: 'ID', name: 'id', widget: 'number', hint: 'Identifier for this module' }
+      - { label: 'ID', name: 'module_id', widget: 'number', hint: 'Identifier for this module' }
       - { label: 'Created On', name: 'datetime', widget: 'datetime' }
       - label: 'Page'
         name: 'page'
@@ -81,7 +81,7 @@ collections:
                   - { label: 'Question Text', name: 'text', widget: 'string' }
                   - { label: 'Label (Low)', name: 'low_label', widget: 'text' }             
                   - { label: 'Label (High)', name: 'high_label', widget: 'text' }
-                  - { label: 'Range', name: 'number', widget: 'number' }
+                  - { label: 'Range', name: 'range', widget: 'number' }
               - label: 'Select and Rank'
                 name: 'rank'
                 widget: 'list'
@@ -190,7 +190,7 @@ collections:
               - { label: 'Question Text', name: 'text', widget: 'string' }
               - { label: 'Label (Low)', name: 'low_label', widget: 'text' }             
               - { label: 'Label (High)', name: 'high_label', widget: 'text' }
-              - { label: 'Range', name: 'number', widget: 'number' }
+              - { label: 'Range', name: 'range', widget: 'number' }
           - label: 'Select and Rank'
             name: 'rank'
             widget: 'list'

@@ -3,39 +3,38 @@
     <article>
       <!-- Module Description Text -->
       <h1>{{page}} -</h1>
-      <!-- <h1>{{moduler.page}} -</h1> -->
-      <!-- <h1>Page Count {{this.moduler.page[this.page_number].length}}</h1> -->
       <!-- Page Intro Text -->
-      <div v-html="$md.render(moduler.page[this.page_number].introduction)" />
+      <div v-html="$md.render(page.introduction)" />
       <!-- Form Types -->
-      <div v-if="moduler.page[this.page_number].form.length > 0">
+      <div v-for="(qs, i) in page.form" :key="i">
         <!-- Yes/No Question -->
-        <div v-if="moduler.page[this.page_number].form.type == 'binary'">
-          <binary :settings="moduler.page[this.page_number].form[0]" @selected="selected"></binary>
+        <div v-if="qs.type == 'binary'">
+          <binary :settings="qs" @selected="selected"></binary>
         </div>
         <!-- Slider Question -->
-        <div v-if="moduler.page[this.page_number].form[0].type == 'slider'">
-          <!-- <slider @selected="selected"></slider> -->
+        <div v-if="qs.type == 'slider'">
+          <slider :settings="qs" @selected="selected"></slider>
         </div>
         <!-- Rank Question -->
-        <div v-if="moduler.page[this.page_number].form[0].type == 'rank'">
-          <!-- <rank @selected="selected"></rank> -->
+        <div v-if="qs.type == 'rank'">
+          <rank :settings="qs" @selected="selected"></rank>
         </div>
         <!-- Choice Question -->
-        <div v-if="moduler.page[this.page_number].form[0].type == 'choice'">
+        <div v-if="qs.type == 'choice'">
           <multiple-choice @selected="selected"></multiple-choice>
         </div>
         <!-- Custom Question -->
-        <div v-if="moduler.page[this.page_number].form[0].type == 'custom'">
+        <div v-if="qs.type == 'custom'">
           <!-- <binary-select @selected="selected"></binary-select> -->
         </div>
-        <div class="text-center">
-          <button @click="nextPage(page+1)">next</button>
-        </div>
       </div>
+
       <!-- Show Custom Component -->
-      <div v-if="moduler.page[this.page_number].is_custom == true">
-        <component class="p-4" :is="moduler.page[this.page_number].custom_component_id"></component>
+      <div v-if="page_number.is_custom == true">
+        <component :is="moduler.page[this.page_number].custom_component_id"></component>
+      </div>
+      <div class="text-center">
+        <button @click="nextPage(page+1)">next</button>
       </div>
     </article>
   </transition>
@@ -44,6 +43,7 @@
 // Input components
 import Binary from '~/components/input/BinarySelect.vue'
 import MultipleChoice from '~/components/input/MultipleChoice.vue'
+import Slider from '~/components/input/Slider.vue'
 
 // Custom components
 import CustomExample from '~/components/custom/CustomExample.vue'
@@ -64,6 +64,7 @@ export default {
   },
   components: {
     Binary,
+    Slider,
     MultipleChoice,
     CustomExample
   },
