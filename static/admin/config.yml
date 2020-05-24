@@ -202,8 +202,11 @@ collections:
                 name: 'list'
                 widget: 'list'
                 hint: 'Add an item to the list'
-                field: {label: List Item, name: item, widget: string}
-                  # - { label: 'List Item', name: 'item', widget: 'string' }
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                hint: 'Add an array item to the list'
+                field: {name: tag, label: Tag, widget: string}
 
           - label: 'Multiple Choice Question'
             name: 'choice'
