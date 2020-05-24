@@ -1,25 +1,49 @@
 export const state = () => ({
-  blogPosts: []
+  modules: []
 })
 
 export const mutations = {
-  setBlogPosts(state, list) {
-    state.blogPosts = list
+  setModules(state, list) {
+    console.log('setting modules')
+    console.log(list)
+    state.modules = list
   }
 }
 
 export const actions = {
   async nuxtServerInit({ commit }) {
     let files = await require.context(
-      '~/assets/content/blog/',
+      '~/assets/content/_modules/',
       false,
       /\.json$/
     )
-    let blogPosts = files.keys().map(key => {
+    let modules = files.keys().map(key => {
       let res = files(key)
       res.slug = key.slice(2, -5)
       return res
     })
-    await commit('setBlogPosts', blogPosts)
+    await commit('setModules', modules)
   }
 }
+
+// export const state = () => ({
+//   blogPosts: [],
+// });
+
+// export const mutations = {
+//   setBlogPosts(state, list) {
+//     state.blogPosts = list;
+//   },
+// };
+
+// export const actions = {
+//   async nuxtServerInit({ commit }) {
+//     let files = await require.context('~/assets/content/blog/', false, /\.json$/);
+//     let blogPosts = files.keys().map(key => {
+//       let res = files(key);
+//       res.slug = key.slice(2, -5);
+//       return res;
+//     });
+//     await commit('setBlogPosts', blogPosts);
+//   },
+// };
