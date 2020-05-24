@@ -1,16 +1,16 @@
 {
-    "title": "page-2",
-    "id": "2",
-    "introduction": "could you  please?",
-    "form": [
-        {
-            "type": "slider",
-            "text": "This is an example slider question",
-            "low_label": "not good",
-            "high_label": "good",
-            "range": 9
-        }
-    ],
-    "is_custom_component": true,
-    "custom_component_id": "CustomExample"
+  "title": "page-2",
+  "id": "2",
+  "introduction": "rate using this slider",
+  "form": [
+    {
+      "type": "slider",
+      "text": "This is an example slider question",
+      "low_label": "not good",
+      "high_label": "good",
+      "range": 9
+    }
+  ],
+  "is_custom_component": true,
+  "custom_component_id": "CustomExample"
 }
