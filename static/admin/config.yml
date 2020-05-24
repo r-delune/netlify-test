@@ -153,6 +153,7 @@ collections:
       - { label: 'Module Content', name: 'description', widget: 'text' }     
     collapsed: true
     fields:
+      - { label: 'Title', name: 'title', widget: 'string', hint: 'title of this page' }
       - { label: 'ID', name: 'id', widget: 'string', hint: 'ID reference for this page' }
       - { label: 'Introduction', name: 'introduction', widget: 'markdown', hint: 'Introductory text' }
       - label: 'List'

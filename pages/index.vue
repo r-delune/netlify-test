@@ -5,7 +5,7 @@
     <h2 class="subtitle">Truly fantastic. Sometimes I astound even myself.</h2>
     <a href="https://github.com/xdesro/nuxt-netlify-cms-starter">GitHub</a>
     <a href="http://i.ncredibly.online">Twitter</a>
-    <nuxt-link to="/module">Module</nuxt-link>
+    <nuxt-link to="/page">Page</nuxt-link>
     <div class="deploy-button">
       <a
         href="https://app.netlify.com/start/deploy?repository=https://github.com/xdesro/nuxt-netlify-cms-starter"
