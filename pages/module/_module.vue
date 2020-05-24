@@ -1,46 +1,53 @@
 <template>
-  <article>
-    <!-- Module Description Text -->
-    <h1>{{moduler.title}} - Page Count {{moduler.page.length}}</h1>
-    <!-- Page Intro Text -->
-    <div v-html="$md.render(moduler.page[page].text)" />
-    <!-- Form Types -->
-    <div v-if="page.form.length > 0">
-      <!-- Yes/No Question -->
-      <div v-if="page.form.type == 'binary'">
-        <binary-select @selected="selected"></binary-select>
+  <transition name="slide-fade" mode="out-in">
+    <article>
+      <!-- Module Description Text -->
+      <h1>{{page}} -</h1>
+      <!-- <h1>{{moduler.page}} -</h1> -->
+      <h1>Page Count {{this.moduler.page[this.page_number].length}}</h1>
+      <!-- Page Intro Text -->
+      <div v-html="$md.render(moduler.page[this.page_number].text)" />
+      <!-- Form Types -->
+      <div v-if="moduler.page[this.page_number].form.length > 0">
+        <!-- Yes/No Question -->
+        <div v-if="moduler.page[this.page_number].form.type == 'binary'">
+          <binary @selected="selected"></binary>
+        </div>
+        <!-- Slider Question -->
+        <div v-if="moduler.page[this.page_number].form.type == 'slider'">
+          <slider @selected="selected"></slider>
+        </div>
+        <!-- Rank Question -->
+        <div v-if="moduler.page[this.page_number].form.type == 'rank'">
+          <rank @selected="selected"></rank>
+        </div>
+        <!-- Choice Question -->
+        <div v-if="moduler.page[this.page_number].form.type == 'choice'">
+          <multiple-choice @selected="selected"></multiple-choice>
+        </div>
+        <!-- Custom Question -->
+        <div v-if="moduler.page[this.page_number].form.type == 'custom'">
+          <binary-select @selected="selected"></binary-select>
+        </div>
+        <div class="text-center">
+          <button @click="nextPage(page+1)">next</button>
+        </div>
       </div>
-      <!-- Slider Question -->
-      <div v-if="page.form.type == 'slider'">
-        <binary-select @selected="selected"></binary-select>
+      <!-- Show Custom Component -->
+      <div v-if="moduler.page[this.page_number].is_custom == true">
+        <component class="p-4" :is="moduler.page[this.page_number].custom_component_id"></component>
       </div>
-      <!-- Rank Question -->
-      <div v-if="page.form.type == 'rank'">
-        <binary-select @selected="selected"></binary-select>
-      </div>
-      <!-- Choice Question -->
-      <div v-if="page.form.type == 'choice'">
-        <binary-select @selected="selected"></binary-select>
-      </div>
-      <!-- Custom Question -->
-      <div v-if="page.form.type == 'custom'">
-        <binary-select @selected="selected"></binary-select>
-      </div>
-      <div class="text-center">
-        <button @click="nextPage(page+1)">next</button>
-      </div>
-    </div>
-    <div v-if="page.form.is_custom == true"></div>
-  </article>
+    </article>
+  </transition>
 </template>
 <script>
-import BinarySelect from '~/components/custom/BinarySelect'
-import MultipleChoice from '~/components/custom/MultipleChoice'
-import MultipleChoiceSingle from '~/components/custom/MultipleChoiceSingle'
-import MultiBinarySelect from '~/components/custom/MultiBinarySelect'
-import BinarySelect from '~/components/custom/BinarySelect'
-import BinarySelect from '~/components/custom/BinarySelect'
-import BinarySelect from '~/components/custom/BinarySelect'
+import Binary from '~/components/input/BinarySelect'
+import MultipleChoice from '~/components/input/MultipleChoice'
+import MultipleChoiceSingle from '~/components/input/MultipleChoiceSingle'
+import MultiBinarySelect from '~/components/input/MultiBinarySelect'
+import MultiSlider from '~/components/input/BinarySelect'
+
+import CustomExample from '~/components/custom/CustomExample'
 
 export default {
   data: () => ({
@@ -48,16 +55,26 @@ export default {
   }),
   computed: {
     page() {
-      return moduler.page[this.page_number]
+      return this.moduler.page[this.page_number]
     }
   },
   components: {
-    BinarySelect
+    MultiSlider,
+    Binary,
+    MultipleChoice,
+    MultipleChoiceSingle,
+    MultiBinarySelect,
+    CustomExample
   },
   methods: {
     nextPage() {
       console.log('moving to next page')
       this.page_number++
+    },
+    methods: {
+      selected(answer) {
+        console.log('Answer has recieved callback: ' + answer)
+      }
     }
   },
   async asyncData({ params, payload }) {

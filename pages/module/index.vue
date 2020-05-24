@@ -2,7 +2,7 @@
   <div>
     <ul v-for="(m, index) in modules" :key="index">
       <nuxt-link :to="`/module/${m.title}`">{{m.title}}</nuxt-link>
-      <p>{{m.page}}</p>
+      <!-- <p>{{m.page}}</p> -->
     </ul>
   </div>
 </template>

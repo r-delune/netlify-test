@@ -14,12 +14,10 @@ collections:
     extension: "json"
     editor:
       preview: false
-
     files:
-      - file: "src/data/navigation.json"
-        label: "Navigation"
-        name: "navigation"
-
+      - file: "src/data/settings.json"
+        label: "Settings"
+        name: "settings"
         fields:
           - { name: body, label: Body, widget: code }
   - name: 'Module Content' 
@@ -141,4 +139,4 @@ collections:
                   - { label: 'Component ID', name: 'number', widget: 'number' }
                   - { label: 'Component Name', name: 'string', widget: 'string' }
           - { label: 'Custom Component', name: 'is_custom_component', widget: 'boolean', hint: 'This contains a custom component' }
-          - { label: 'Custom Component ID', name: 'is_custom_component', widget: 'text', hint: 'The name of the custom object' }
+          - { label: 'Custom Component ID', name: 'custom_component_id', widget: 'text', hint: 'The name of the custom object' }
