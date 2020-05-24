@@ -225,17 +225,14 @@ collections:
               Create a Likeart Scale question
             fields:
               - { label: 'Question Text', name: 'string', widget: 'string' }
-              - { label: 'Select No', name: 'number', widget: 'number' }
-              - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-              - label: 'List'
-                name: 'list'
+              - { label: 'Complete after', name: 'number', hint: 'Mark question as completed after count', widget: 'number' }
+              - label: 'Items to rank'
+                name: 'list item'
                 widget: 'list'
                 fields:
                   - label: 'Related Post'
-                    name: 'post'
-                    widget: 'relationKitchenSinkPost'
                   - { label: 'List Item', name: 'string', widget: 'string' }
-                  - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
+                  - { label: 'Range', name: 'range', widget: 'number' }
           - name: 'Custom Input'
             widget: 'object'
             description: >
@@ -244,5 +241,5 @@ collections:
             fields:
               - { label: 'Component ID', name: 'number', widget: 'number' }
               - { label: 'Component Name', name: 'string', widget: 'string' }
-      - { label: 'Custom Component', name: 'is_custom_component', widget: 'boolean', hint: 'This contains a custom component' }
-      - { label: 'Custom Component ID', name: 'custom_component_id', widget: 'text', hint: 'The name of the custom object' }
+      - { label: 'Custom Component', name: 'is_custom_component', widget: 'boolean', hint: 'This contains a custom component', required: false}
+      - { label: 'Custom Component ID', name: 'custom_component_id', widget: 'text', hint: 'The name of the custom object', required: false}

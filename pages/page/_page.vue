@@ -67,10 +67,15 @@ export default {
   },
   methods: {
     nextPage() {
-      console.log('moving to next page ' + '/page/page-' + this.page_number)
-      this.page_number++
+      console.log('moving from page ' + '/page/page-' + this.page.id)
+
+      var curr_page = this.page.id.replace('page-', '')
+      console.log(curr_page) //prints: 123
+      curr_page++
+      console.log('moving to page ' + '/page/page-' + curr_page)
+
       this.$router.push({
-        path: '/page/page-' + this.page_number
+        path: '/page/page-' + curr_page
       })
     },
     selected(answer) {
