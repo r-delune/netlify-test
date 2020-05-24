@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: master
+  local_backend: true
 
 media_folder: static/img
 public_folder: /img
@@ -201,8 +202,8 @@ collections:
                 name: 'list'
                 widget: 'list'
                 hint: 'Add an item to the list'
-                field:
-                  - { label: 'List Item', name: 'item', widget: 'string' }
+                field: {label: List Item, name: item, widget: string}
+                  # - { label: 'List Item', name: 'item', widget: 'string' }
 
           - label: 'Multiple Choice Question'
             name: 'choice'
