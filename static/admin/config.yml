@@ -156,13 +156,6 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string', hint: 'title of this page' }
       - { label: 'ID', name: 'id', widget: 'string', hint: 'ID reference for this page' }
       - { label: 'Introduction', name: 'introduction', widget: 'markdown', hint: 'Introductory text' }
-      - label: 'List'
-        description: >
-          'Create a list of items to display'
-        name: 'list'
-        widget: 'list'
-        fields:
-          - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
       - label: 'User Input'
         hint: 'Add a section requiring user input'
         description: >
@@ -201,7 +194,7 @@ collections:
             hint: 'User must rank the items in order of preference'
             fields:
               - { label: 'Question Text', name: 'string', widget: 'string' }
-              - label: 'List'
+              - label: 'Select and Rank list'
                 name: 'list'
                 widget: 'list'
                 hint: 'Add an item to the list'
