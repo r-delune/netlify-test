@@ -7,11 +7,19 @@
       <div class="slider-label">{{ settings.low_label }}</div>
     </div>
     <div class="col-2">
-      <base-slider
+      <!-- <base-slider
         @input="changedSliders()"
         v-model="sliders.slider1"
         :range="{min: 1, max: settings.range}"
-      ></base-slider>
+      ></base-slider>-->
+      <range-slider
+        @input="changedSliders()"
+        class="slider"
+        min="10"
+        max="1000"
+        step="10"
+        v-model="sliderValue"
+      ></range-slider>
     </div>
     <div class="col- m-auto">
       <div class="slider-label">{{settings.high_label }}</div>
@@ -19,9 +27,14 @@
   </div>
 </template>
 <script>
+import RangeSlider from 'vue-range-slider'
+// you probably need to import built-in style
+import 'vue-range-slider/dist/vue-range-slider.css'
+
 export default {
   name: 'slider',
   data: () => ({
+    sliderValue: 50,
     sliders: {
       slider1: 0
     }
@@ -29,11 +42,20 @@ export default {
   props: {
     settings: Object
   },
+  components: {
+    RangeSlider
+  },
   methods: {
     changedSliders() {
-      this.$emit('selected', sliders.slider1)
+      this.$emit('selected', this.sliderValue)
       console.log('changed sliders')
     }
   }
 }
 </script>
+<style>
+.slider {
+  /* overwrite slider styles */
+  width: 200px;
+}
+</style> 

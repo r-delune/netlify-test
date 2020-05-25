@@ -20,12 +20,6 @@ export default {
     routes: function () {
       const fs = require('fs');
       const path = require('path');
-      // return fs.readdirSync('./assets/content/_modules').map(file => {
-      //   return {
-      //     route: `/module/${path.parse(file).name}`, // Return the slug
-      //     payload: require(`./assets/content/_modules/${file}`),
-      //   };
-      // });
       return fs.readdirSync('./assets/content/_pages').map(file => {
         return {
           route: `/page/${path.parse(file).name}`, // Return the slug

@@ -13,7 +13,7 @@ export const mutations = {
         let tree = require(`assets/module-info.json`)
 
         // set the available path based on user type
-        tree.module_data.forEach(function (module) {
+        tree.modules.forEach(function (module) {
             if (user_type in module) {
                 menu_items.push(module)
             }

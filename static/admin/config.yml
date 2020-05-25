@@ -1,19 +1,15 @@
 backend:
   name: git-gateway
   branch: master
-  local_backend: true
 
 media_folder: static/img
 public_folder: /img
-
-
-
-# publish_mode: editorial_workflow
 
 display_url: https://miuse-test.com
 logo_url: https://ibb.co/59Kndbf
 site_url: https://miuse-test.com
 
+# publish_mode: editorial_workflow
 
 collections:
   - name: 'Module Content'
@@ -44,6 +40,7 @@ collections:
         name: 'form'
         widget: 'list'
         types:
+          
           # 'Yes/No Question'
           - label: 'Yes/No Question'
             name: 'binary'
@@ -129,75 +126,13 @@ collections:
               Reference a custom component requiring user input
             hint: 'This is custom component specific to this page/activity'
             fields:
-              - { label: 'Component ID', name: 'number', widget: 'number' }
-              - { label: 'Component Name', name: 'string', widget: 'string' }
+              - { label: 'Component ID', name: 'custom_input_id', widget: 'number' }
+              - { label: 'Component Name', name: 'name', widget: 'string' }
+      
+      # 'Custom Component (activities etc)'      
       - { label: 'Custom Component', name: 'is_custom_component', widget: 'boolean', hint: 'This contains a custom component', required: false}
       - { label: 'Custom Component ID', name: 'custom_component_id', widget: 'text', hint: 'The name of the custom object', required: false}
-
-  #
-  # GENERAL PAGES #######################################################
-  #
-  - label: 'General'
-    name: 'general'
-    format: 'json'
-    delete: false
-    files:
-      - label: 'Home'
-        name: 'home'
-        file: 'assets/content/home.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Register Button', name: 'btn_register', widget: 'string' }
-          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
-      - label: 'Register'
-        name: 'register'
-        file: 'assets/content/register.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
-          - { label: 'Copied Message', name: 'copy', widget: 'markdown' }
-          - { label: 'Saved Message', name: 'save', widget: 'markdown' }
-          - { label: 'Copy Button', name: 'btn_copy', widget: 'string' }
-          - { label: 'Save Button', name: 'btn_save', widget: 'string' }
-          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-      - label: 'Login'
-        name: 'login'
-        file: 'assets/content/login.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
-          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
-          - { label: 'Cancel Button', name: 'btn_cancel', widget: 'string' }
-      - label: 'Activities'
-        name: 'activities'
-        file: 'assets/content/activities.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Drug Use', name: 'drugs', widget: 'string' }
-          - { label: 'Behavioural Awareness', name: 'awareness', widget: 'string' }
-          - { label: 'Relationship Assessment', name: 'relationships', widget: 'string' }
-          - { label: 'Goals and Committed Actions', name: 'goals', widget: 'string' }
-          - { label: 'Social Norms', name: 'social', widget: 'string' }
-          - { label: 'Overall Personalized feedback ', name: 'review', widget: 'string' }
-      - label: 'About'
-        name: 'about'
-        file: 'assets/content/about.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-      - label: 'Support'
-        name: 'support'
-        file: 'assets/content/support.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
-
-
-
+      - { label: 'Final', name: 'final', widget: 'boolean', hint: 'Indicate this is the final page of this module', default: false }
 
   #
   # GENERAL PAGES #######################################################
@@ -274,119 +209,3 @@ collections:
         name: "settings"
         fields:
           - { name: body, label: Body, widget: code }
-  # - name: 'Module Content' 
-  #   label: 'Modules'
-  #   folder: 'assets/content/_modules'
-  #   extension: "json"
-  #   label_singular: 'Module'
-  #   description: >
-  #     Create a new module here with it's respective pages. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree
-  #   create: true
-  #   editor:
-  #     preview: false
-  #   meta:
-  #     - { label: 'Module Content', name: 'description', widget: 'text' }
-  #   fields:
-  #     - { label: 'Title', name: 'title', widget: 'string', hint: 'Name of the module'}
-  #     - { label: 'ID', name: 'module_id', widget: 'number', hint: 'Identifier for this module' }
-  #     - { label: 'Created On', name: 'datetime', widget: 'datetime' }
-  #     - label: 'Page'
-  #       name: 'page'
-  #       create: true
-  #       widget: 'list'
-  #       description: >
-  #         Create a new page within this module - routing will be carried out seperately via the decision tree        
-  #       collapsed: true
-  #       fields:
-  #         - { label: 'ID', name: 'id', widget: 'string', hint: 'ID reference for this page' }
-  #         - { label: 'Introduction', name: 'introduction', widget: 'markdown', hint: 'Introductory text' }
-  #         - label: 'List'
-  #           description: >
-  #             'Create a list of items to display'
-  #           name: 'list'
-  #           widget: 'list'
-  #           fields:
-  #             - { label: 'Markdown', name: 'markdown', widget: 'markdown' }
-  #         - label: 'User Input'
-  #           hint: 'Add a section requiring user input'
-  #           description: >
-  #             'Add a section requiring user input'
-  #           name: 'form'
-  #           widget: 'list'
-  #           types:
-  #             - label: 'Yes/No Question'
-  #               name: 'binary'
-  #               widget: 'object'
-  #               hint: Create a yes/no format question
-  #               description: >
-  #                 Create a yes/no format question
-  #               fields:
-  #                 - { label: 'Question Text', name: 'question_text', widget: 'string' }
-  #                 - { label: 'Yes Text', name: 'yes_text', widget: 'string' }
-  #                 - { label: 'No Text', name: 'no_text', widget: 'string' }
-                  
-  #             - label: 'Slider Question'
-  #               name: 'slider'
-  #               hint: Create a slider format question
-  #               description: >
-  #                 Create a slider question
-  #               widget: 'list'
-  #               fields:
-  #                 - { label: 'Question Text', name: 'text', widget: 'string' }
-  #                 - { label: 'Label (Low)', name: 'low_label', widget: 'text' }             
-  #                 - { label: 'Label (High)', name: 'high_label', widget: 'text' }
-  #                 - { label: 'Range', name: 'range', widget: 'number' }
-  #             - label: 'Select and Rank'
-  #               name: 'rank'
-  #               widget: 'list'
-  #               create: true
-  #               description: >
-  #                 Create a select and rank question
-  #               hint: 'User must rank the items in order of preference'
-  #               fields:
-  #                 - { label: 'Question Text', name: 'text', widget: 'string' }
-  #                 - label: 'List'
-  #                   name: 'list'
-  #                   widget: 'list'
-  #                   hint: 'Add an item to the list'
-  #                   fields:
-  #                     - { label: 'List Item', name: 'items', widget: 'string' }
-  #             - label: 'Multiple Choice Question'
-  #               name: 'choice'
-  #               widget: 'list'
-  #               hint: Create a multiple choice question
-  #               description: >
-  #                 Create a multiple choice question
-  #               fields:
-  #                 - {label: "Test list item", name: "tags", widget: "list"}
-  #                 - { label: 'Question Text', name: 'item', widget: 'string' }
-  #                 - { label: 'List Item', name: 'string', widget: 'string' }
-  #             - label: 'Likeart Scale'
-  #               widget: 'list'
-  #               name: 'likeart'
-  #               hint: Create a Likeart Scale question
-  #               description: >
-  #                 Create a Likeart Scale question
-  #               fields:
-  #                 - { label: 'Question Text', name: 'string', widget: 'string' }
-  #                 - { label: 'Select No', name: 'number', widget: 'number' }
-  #                 - { label: 'Select', name: 'select', widget: 'select', options: ['a', 'b', 'c'] }
-  #                 - label: 'List'
-  #                   name: 'list'
-  #                   widget: 'list'
-  #                   fields:
-  #                     - label: 'Related Post'
-  #                       name: 'post'
-  #                       widget: 'relationKitchenSinkPost'
-  #                     - { label: 'List Item', name: 'string', widget: 'string' }
-  #                     - { label: 'Boolean', name: 'boolean', widget: 'boolean' }
-  #             - name: 'Custom Input'
-  #               widget: 'object'
-  #               description: >
-  #                 Reference a custom component requiring user input
-  #               hint: 'This is custom component specific to this page/activity'
-  #               fields:
-  #                 - { label: 'Component ID', name: 'number', widget: 'number' }
-  #                 - { label: 'Component Name', name: 'string', widget: 'string' }
-  #         - { label: 'Custom Component', name: 'is_custom_component', widget: 'boolean', hint: 'This contains a custom component' }
-  #         - { label: 'Custom Component ID', name: 'custom_component_id', widget: 'text', hint: 'The name of the custom object' }

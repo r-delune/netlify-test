@@ -8,9 +8,11 @@
     <div class="col">
       <div class="row d-flex justify-content-center min-vw-350">
         <draggable v-model="selected_items" @end="dragEnd">
-          <div v-for="(item, i) in selected_items" :key="item" class="row d-flex p-3">
-            <badge type="primary" pill>{{ i + 1 }} - {{item}}</badge>
-          </div>
+          <div
+            v-for="(item, i) in selected_items"
+            :key="item"
+            class="row d-flex p-3"
+          >{{ i + 1 }} - {{item}}</div>
         </draggable>
       </div>
     </div>

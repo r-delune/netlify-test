@@ -1,7 +1,5 @@
 <template>
   <article>
-    <!-- Module Description Text -->
-    <!-- <h1>{{page}} -</h1> -->
     <!-- Page Intro Text -->
     <div v-html="$md.render(page.introduction)" />
     <!-- Form Types -->
@@ -24,7 +22,7 @@
       </div>
       <!-- Custom Question -->
       <div v-if="qs.type == 'custom'">
-        <binary-select :settings="qs" @selected="selected"></binary-select>
+        <component :is="page.custom_input_id" :settings="qs" @selected="selected"></component>
       </div>
     </div>
     <!-- Show Custom Component -->
@@ -49,7 +47,8 @@ import CustomExample from '~/components/custom/CustomExample.vue'
 export default {
   data: () => ({
     page_number: 0,
-    limit: 0
+    limit: 0,
+    show_next: false
   }),
   components: {
     Rank,
@@ -60,33 +59,41 @@ export default {
   },
   computed: {
     is_completed() {
-      console.log('PAGE')
-      console.log(this.page)
-      // set page as completed if there are no forms
-      if (this.page.form.length == 0) {
+      if (this.show_next == true) {
         return true
-      } else {
+      }
+
+      // set page as completed if there are no forms
+      if (this.page.form.length > 0) {
         return false
       }
     }
   },
   methods: {
     nextPage() {
-      var curr_page = this.page.id.replace('1.', '')
-      curr_page++
-      console.log('moving to page ' + '/page/1.' + curr_page)
-      this.$router.push({ path: '/page/1.' + curr_page })
+      console.log('PAGE')
+      console.log(this.page)
+
+      if (this.page.final == true) {
+        console.log('reached final page')
+        this.$router.push({ path: '/' })
+      } else {
+        var curr_page = this.page.id.replace('1.', '')
+        curr_page++
+        console.log('moving to page ' + '/page/1.' + curr_page)
+        this.$router.push({ path: '/page/1.' + curr_page })
+      }
     },
     selected(answer) {
       console.log('Answer has recieved callback: ' + answer)
 
       // Only set to true if page has completed requirements
-      if ('limit' in page) {
+      if ('limit' in this.page) {
         if (answer.length > page.limit) {
-          this.is_completed = true
-        } else {
-          this.is_completed = false
+          this.show_next = true
         }
+      } else {
+        this.show_next = true
       }
     }
   },
