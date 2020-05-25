@@ -138,8 +138,6 @@ collections:
   #         - { label: 'Custom Component', name: 'is_custom_component', widget: 'boolean', hint: 'This contains a custom component' }
   #         - { label: 'Custom Component ID', name: 'custom_component_id', widget: 'text', hint: 'The name of the custom object' }
 
-
-
   - name: 'Module Content'
     label: 'Module Content'
     folder: 'assets/content/_pages'
@@ -164,7 +162,7 @@ collections:
         name: 'form'
         widget: 'list'
         types:
-
+          # 'Yes/No Question'
           - label: 'Yes/No Question'
             name: 'binary'
             widget: 'object'
@@ -175,7 +173,8 @@ collections:
               - { label: 'Question Text', name: 'question_text', widget: 'string' }
               - { label: 'Yes Text', name: 'yes_text', widget: 'string' }
               - { label: 'No Text', name: 'no_text', widget: 'string' }
-              
+          
+          # 'Slider Question'
           - label: 'Slider Question'
             name: 'slider'
             hint: Create a slider format question
@@ -187,7 +186,8 @@ collections:
               - { label: 'Label (Low)', name: 'low_label', widget: 'text' }             
               - { label: 'Label (High)', name: 'high_label', widget: 'text' }
               - { label: 'Range', name: 'range', widget: 'number' }
-
+        
+          # 'Select and Rank'
           - label: 'Select and Rank'
             name: 'rank'
             widget: 'list'
@@ -207,7 +207,8 @@ collections:
                 widget: "list"
                 hint: 'Add an array item to the list'
                 field: {name: tag, label: Tag, widget: string}
-
+          
+          # 'Multiple Choice Question'
           - label: 'Multiple Choice Question'
             name: 'choice'
             widget: 'list'
@@ -224,7 +225,8 @@ collections:
                 hint: 'Add an item to the list'
                 fields:
                   - { label: 'List Item', name: 'item', widget: 'string' }
-
+        
+          # 'Likeart Scale'
           - label: 'Likeart Scale'
             widget: 'list'
             name: 'likeart'
@@ -241,7 +243,8 @@ collections:
                   - label: 'Likeart Items'
                   - { label: 'List Item', name: 'items', widget: 'string' }
                   - { label: 'Range', name: 'range', widget: 'number' }
-
+        
+          # 'Custom Input'
           - name: 'Custom Input'
             widget: 'object'
             description: >

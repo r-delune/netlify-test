@@ -2,7 +2,7 @@
   <div class="row p-3">
     <div class="col">
       <div class="row d-flex justify-content-center min-vw-350">
-        <multiple-choice :items.sync="settings.items" @selected="selected"></multiple-choice>
+        <multiple-choice :settings="settings" @selected="selected"></multiple-choice>
       </div>
     </div>
     <div class="col">
