@@ -34,14 +34,15 @@ export default {
   },
   methods: {
     selected(selection) {
-      console.log('selected drugs has been clicked - ' + selection)
+      console.log('selected - ' + selection)
       this.selected_items = selection
       var self = this
       var final = []
 
       this.selected_items.forEach(function(item, index) {
         let selected = {}
-        selected.id = self.items.indexOf(item)
+        console.log('self.settings - ' + self.settings)
+        selected.id = self.settings.indexOf(item)
         selected.text = item
         final[index] = selected
       })

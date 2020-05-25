@@ -31,7 +31,7 @@
     <div v-if="page.is_custom_component == true">
       <component :is="page.custom_component_id" :items="page.page"></component>
     </div>
-    <div class="text-center">
+    <div v-if="is_completed" class="text-center">
       <button @click="nextPage()">next</button>
     </div>
   </article>
@@ -57,6 +57,15 @@ export default {
     MultipleChoice,
     CustomExample
   },
+  computed: {
+    is_completed() {
+      if (this.page.form.length == 0) {
+        return true
+      } else {
+        return false
+      }
+    }
+  },
   methods: {
     nextPage() {
       var curr_page = this.page.id.replace('1.', '')
@@ -69,8 +78,6 @@ export default {
     }
   },
   async asyncData({ params, payload }) {
-    console.log('async data')
-    console.log(params)
     if (payload) return { page: payload }
     else
       return {
