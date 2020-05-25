@@ -1,16 +1,17 @@
 {
-  "title": "page-5",
+  "title": "1.5",
   "id": "5",
   "introduction": "this is a page 5 question - rank things",
   "form": [
     {
-      "type": "rank",
-      "text": "This is an example rank question",
-      "low_label": "not good",
-      "high_label": "good",
       "items": "good",
-      "range": 5,
+      "low_label": "not good",
+      "text": "This is an example rank question",
       "string": "select and rank these items",
+      "high_label": "good",
+      "type": "rank",
+      "limit": 6,
+      "range": 5,
       "list": [
         {
           "item": "item 1"
