@@ -1,42 +1,96 @@
 export const state = () => ({
-    menu_items: []
+    menu_items: [],
+    decision_tree: [],
+    current_page: '',
+    next_page: 0
 })
+
+import decision_tree_JSON from '~/assets/content/decision-tree.json';
 
 export const mutations = {
     setNavigationData(state, json) {
-        state.tree = json
+        console.log('saving decsion tree data')
+        state.decision_tree = json
     },
     setMenuItems(state, user_type) {
         let menu_items = []
 
         // get all module information
-        let tree = require(`assets/module-info.json`)
+        let module_info = require(`assets/content/module-info.json`)
 
         // set the available path based on user type
-        tree.modules.forEach(function (module) {
+        module_info.modules.forEach(function (module) {
             if (user_type in module) {
                 menu_items.push(module)
             }
         });
         state.menu_items = menu_items
     },
+    setCurrentPage(state, current_page) {
+        console.log('mutating current_page page to ' + current_page)
+        state.current_page = current_page
+    },
+    setNextPage(state, next_page) {
+        console.log('mutating next page to ' + next_page)
+        state.next_page = next_page
+    }
+
 }
 
 export const actions = {
-    // load the decison tree
+    // load the decison tree to be removed
     async fetchNavigationData({ commit }) {
         // Load the decision tree into state
-        let tree = require(`assets/decision-tree.json`)
-        await commit('setNavigationData', tree)
+        // let decision_tree = require(`assets/content/decision-tree.json`)
+        // await commit('setNavigationData', decision_tree)
+        await commit('setMenuItems', 'Severe')
+    },
+    // set next page
+    async determineNextPage({ commit, state }, payload) {
 
         // TODO: Move somewhere else
         await commit('setMenuItems', 'Severe')
+        console.log('DETERMINE NEXT PAGE FROM ' + payload.page.title)
+        console.log('ANSWERS')
+        console.log(payload.answers)
+        console.log(payload.page.title)
+        // console.log(decision_tree_JSON)
+        console.log(decision_tree_JSON[payload.page.title])
+
+        if (decision_tree_JSON[payload.page.title]) {
+
+            var module_logic = decision_tree_JSON[payload.page.title]
+
+            if (module_logic.next == 'conditional') {
+                for (var i = 0; i < module_logic.conditions.length; i++) {
+
+                    console.log('condition ' + i)
+                    console.log('answers ' + payload.answers[i])
+
+                }
+                console.log('found conditional in decision tree')
+
+            } else {
+                console.log('Found next item ' + module_logic.next)
+                await commit('setNextPage', module_logic.next)
+            }
+        }
+    },
+    async setCurrentPage({ commit }, title) {
+        console.log('DISPATCH SETTING CURRENT PAGE' + title)
+        await commit('setCurrentPage', title)
     },
 }
 
 export const getters = {
     getMenuItems: (state) => {
         return state.menu_items
+    },
+    getNextPage: (state) => {
+        return state.next_page
+    },
+    getCurrentPage: (state) => {
+        return state.current_page
     }
 }
 

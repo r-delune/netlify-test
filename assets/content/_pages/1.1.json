@@ -1,8 +1,12 @@
 {
   "title": "1.1",
-  "id": "1",
-  "introduction": "welcome to the module",
-  "form": [],
-  "is_custom_component": true,
-  "custom_component_id": "CustomExample"
+  "introduction": "",
+  "form": [
+    {
+      "type": "binary",
+      "question_text": "In the past 12 months, have you used drugs other than those required for medical reasons?",
+      "yes_text": "Yes",
+      "no_text": "No"
+    }
+  ]
 }

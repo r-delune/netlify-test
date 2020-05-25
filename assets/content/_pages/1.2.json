@@ -1,16 +1,12 @@
 {
   "title": "1.2",
-  "id": "1.2",
-  "introduction": "rate using this slider",
+  "introduction": "",
   "form": [
     {
-      "type": "slider",
-      "text": "This is an example slider question",
-      "low_label": "not good",
-      "high_label": "good",
-      "range": 9
+      "type": "custom",
+      "introduction": "What drugs have you used?",
+      "items": "not good",
+      "custom_component_id": "DrugSelection"
     }
-  ],
-  "is_custom_component": true,
-  "custom_component_id": "CustomExample"
+  ]
 }

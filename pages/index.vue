@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="text-center floater col-4 col-4-sm" v-for="(course, i) in user_courses" :key="i">
-        <nuxt-link slot="brand" :to="'page/'+course.id+'.0'">
+        <nuxt-link @click="setModule(course.id)" slot="brand" :to="'page/'+course.id+'.0'">
           <!-- <font-awesome-icon
             class="activity_icon"
             :style="{ color: course.color }"
@@ -29,6 +29,12 @@ export default {
       script: [
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
       ]
+    }
+  },
+  methods: {
+    setModule(id) {
+      console.log('setting curent oage')
+      this.$store.dispatch('setCurrentPage', id + '.' + 0)
     }
   },
   computed: {

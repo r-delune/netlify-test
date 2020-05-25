@@ -1,5 +1,8 @@
 <template>
   <article>
+    This page {{ current_page}} -
+    Next page {{ next_page}}
+    Next page {{ page}}
     <!-- Page Intro Text -->
     <div v-html="$md.render(page.introduction)" />
     <!-- Form Types -->
@@ -29,12 +32,33 @@
     <div v-if="page.is_custom_component == true">
       <component :is="page.custom_component_id" :items="page.page"></component>
     </div>
-    <div v-if="is_completed" class="text-center">
-      <button @click="nextPage()">next</button>
-    </div>
+    <form role="form" class="text-center">
+      <button
+        :style="{visibility: is_completed ? 'visible' : 'hidden'}"
+        type="button"
+        class="btn btn-primary btn-sm"
+        @click="moveToNextPage()"
+      >Continue</button>
+      <button
+        v-if="this.page.final == true"
+        :style="{visibility: is_completed ? 'visible' : 'hidden'}"
+        type="button"
+        class="btn btn-primary btn-sm"
+        @click="returnToMenu()"
+      >Menu</button>
+      <button
+        v-if="this.page.final == true"
+        :style="{visibility: is_completed ? 'visible' : 'hidden'}"
+        type="button"
+        class="btn btn-primary btn-sm"
+        @click="storeCode()"
+      >Store Login Code</button>
+    </form>
   </article>
 </template>
 <script>
+import { mapMutations } from 'vuex'
+
 // Input components
 import Binary from '~/components/input/BinarySelect.vue'
 import MultipleChoice from '~/components/input/MultipleChoice.vue'
@@ -46,9 +70,8 @@ import CustomExample from '~/components/custom/CustomExample.vue'
 
 export default {
   data: () => ({
-    page_number: 0,
-    limit: 0,
-    show_next: false
+    show_next_page_button: false,
+    answers: []
   }),
   components: {
     Rank,
@@ -58,51 +81,93 @@ export default {
     CustomExample
   },
   computed: {
+    next_page() {
+      return this.$store.getters['navigation/getNextPage']
+    },
+    current_page() {
+      return this.$store.getters['navigation/getCurrentPage']
+    },
     is_completed() {
-      if (this.show_next == true) {
+      if (this.show_next_page_button == true) {
+        this.completed(true)
         return true
       }
 
-      // set page as completed if there are no forms
-      if (this.page.form.length > 0) {
-        return false
+      // set completed if no input required
+      if (this.page.form.length == 0) {
+        this.completed(true)
+        return true
       }
     }
   },
   methods: {
-    nextPage() {
-      console.log('PAGE')
-      console.log(this.page)
-
-      if (this.page.final == true) {
-        console.log('reached final page')
-        this.$router.push({ path: '/' })
-      } else {
-        var curr_page = this.page.id.replace('1.', '')
-        curr_page++
-        console.log('moving to page ' + '/page/1.' + curr_page)
-        this.$router.push({ path: '/page/1.' + curr_page })
-      }
+    // move to the next page
+    moveToNextPage() {
+      console.log('moving to page ' + this.next_page)
+      this.$router.push({ path: '/page/' + this.next_page })
+      this.storeData()
     },
+    // move the user back to the menu
+    returnToMenu() {
+      this.storeData()
+      this.$router.push({ path: '/' })
+    },
+    completed(status) {
+      console.log('completed has been marked')
+      console.log(this.page)
+      console.log(this.answers)
+      this.show_next_page_button = status
+      this.$store.dispatch('navigation/determineNextPage', {
+        page: this.page,
+        answers: this.answers
+      })
+    },
+    // callback from user input
     selected(answer) {
       console.log('Answer has recieved callback: ' + answer)
-
       // Only set to true if page has completed requirements
       if ('limit' in this.page) {
         if (answer.length > page.limit) {
-          this.show_next = true
+          this.completed(true)
         }
       } else {
-        this.show_next = true
+        // otherwise do not show next button
+        this.completed(true)
       }
+
+      this.answers.push(answer)
+    },
+    // store data after page completion
+    storeData() {
+      this.$store.commit('profile/storePageData', {
+        page: this.page,
+        answers: this.answers
+      })
+    },
+    // copy user passcode to clipboard and download to file
+    storeCode() {
+      // this.$store.commit('profile/storeCode', this)
+      this.$copyText(this.user.password)
+      const url = window.URL.createObjectURL(new Blob([this.user.password]))
+      const link = document.createElement('a')
+      link.href = url
+      link.setAttribute('download', 'MyUSE Password.txt')
+      document.body.appendChild(link)
+      link.click()
     }
   },
+  // render this page dynamically on build
   async asyncData({ params, payload }) {
     if (payload) return { page: payload }
     else
       return {
         page: await require(`~/assets/content/_pages/${params.page}.json`)
       }
+  },
+  mounted() {
+    console.log('mounted')
+    console.log(this.page)
+    this.$store.dispatch('navigation/setCurrentPage', this.page.title)
   }
 }
 </script>

@@ -1,8 +1,5 @@
 {
     "title": "1.0",
-    "id": "1",
-    "introduction": "welcome to the module  - intro",
-    "form": [],
-    "is_custom_component": true,
-    "custom_component_id": "CustomExample"
+    "introduction": "In the following section, we will reflect on some aspect of your life at college, including questions asking you about experiences with drugs",
+    "form": []
 }

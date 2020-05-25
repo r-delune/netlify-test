@@ -1,0 +1,24 @@
+{
+    "title": "1.3A",
+    "introduction": "Select the drugs you would like to know more about",
+    "form": [
+        {
+            "type": "slider",
+            "text": "",
+            "low_label": "not good",
+            "high_label": "good",
+            "limit": 3,
+            "range": 9,
+            "items": [
+                "Cannabis",
+                "Ecstasy",
+                "Cocaine",
+                "Ketamine",
+                "Mushrooms",
+                "Amphetamine",
+                "NPS",
+                "Smart Drugs"
+            ]
+        }
+    ]
+}

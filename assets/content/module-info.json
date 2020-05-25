@@ -1,0 +1,127 @@
+{
+    "modules": [
+        {
+            "name": "Building MyUse Profile",
+            "id": 1,
+            "icon": "faCheck",
+            "color": "red",
+            "Non": {
+                "length": 12
+            },
+            "Moderate": {
+                "length": 12
+            },
+            "Severe": {
+                "length": 12
+            },
+            "lengths": {
+                "Non": 12,
+                "Moderate": 6,
+                "Severe": 6
+            }
+        },
+        {
+            "name": "Accuracy",
+            "icon": "faCheck",
+            "color": "red",
+            "id": 2,
+            "Non": {
+                "length": 12
+            },
+            "Severe": {
+                "length": 12
+            },
+            "lengths": {
+                "Non": 12,
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "Me and the importance of others",
+            "icon": "faCheck",
+            "color": "red",
+            "id": 3,
+            "Severe": {
+                "length": 12
+            },
+            "lengths": {
+                "Non": 12,
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "How aware am I?",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 4,
+            "lengths": {
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "Pause, notice, decide",
+            "start": "4.0",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 5,
+            "lengths": {
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "Keeping a mindful eye on my surroundings",
+            "start": "4.0",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 6,
+            "lengths": {
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "Get it safely: MyUSE personalised plan",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 7,
+            "lengths": {
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "How aware am I?",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 8,
+            "lengths": {
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "How aware am I?",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 9,
+            "lengths": {
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "Help and supporting others",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 10,
+            "lengths": {
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "Immediate Needs Assessment",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 11,
+            "lengths": {
+                "Moderate": 6
+            }
+        }
+    ]
+}

@@ -15,18 +15,12 @@ export const actions = {
       res.slug = key.slice(2, -5)
       return res
     })
-    await commit('setPageData', page_data)
+    await commit('setPages', page_data)
   },
 }
 
 export const mutations = {
-  setPageData(state, list) {
+  setPages(state, list) {
     state.page_data = list
-  }
-}
-
-export const getters = {
-  getNextPage(state) {
-    return state.current_module
   }
 }

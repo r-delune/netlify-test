@@ -33,6 +33,8 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string', hint: 'title of this page' }
       - { label: 'ID', name: 'id', widget: 'string', hint: 'ID reference for this page' }
       - { label: 'Introduction', name: 'introduction', widget: 'markdown', hint: 'Introductory text' }
+      # To be removed
+      - { label: 'Final', name: 'final', widget: 'boolean', hint: 'Indicate this is the final page of this module', default: false }
       - label: 'User Input'
         hint: 'Add a section requiring user input'
         description: >
@@ -119,7 +121,7 @@ collections:
                   - { label: 'List Item', name: 'items', widget: 'string' }
                   - { label: 'Range', name: 'range', widget: 'number' }
         
-          # 'Custom Input'
+          # Custom Component (activities etc) 
           - name: 'Custom Input'
             widget: 'object'
             description: >
@@ -128,11 +130,15 @@ collections:
             fields:
               - { label: 'Component ID', name: 'custom_input_id', widget: 'number' }
               - { label: 'Component Name', name: 'name', widget: 'string' }
-      
-      # 'Custom Component (activities etc)'      
-      - { label: 'Custom Component', name: 'is_custom_component', widget: 'boolean', hint: 'This contains a custom component', required: false}
-      - { label: 'Custom Component ID', name: 'custom_component_id', widget: 'text', hint: 'The name of the custom object', required: false}
-      - { label: 'Final', name: 'final', widget: 'boolean', hint: 'Indicate this is the final page of this module', default: false }
+              - { label: 'Question Text', name: 'introduction', widget: 'string' }
+              - { label: 'Description/Notes', name: 'description', widget: 'string' }
+              - label: 'Custom Component Items'
+                name: 'list item'
+                widget: 'list'
+                fields:
+                  - label: 'Component Item'
+                  - { label: 'List Item', name: 'items', widget: 'string' }
+                  - { label: 'Range', name: 'range', widget: 'number' }
 
   #
   # GENERAL PAGES #######################################################
@@ -142,45 +148,30 @@ collections:
     format: 'json'
     delete: false
     files:
-      - label: 'Home'
-        name: 'home'
-        file: 'assets/content/home.json'
+      - label: 'Landing'
+        name: 'landing'
+        file: 'assets/content/landing.json'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-          - { label: 'Register Button', name: 'btn_register', widget: 'string' }
-          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
+          - { label: 'Register', name: 'btn_register', widget: 'string' }
+          - { label: 'Login', name: 'btn_login', widget: 'string' }
       - label: 'Register'
         name: 'register'
         file: 'assets/content/register.json'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
-          - { label: 'Copied Message', name: 'copy', widget: 'markdown' }
-          - { label: 'Saved Message', name: 'save', widget: 'markdown' }
-          - { label: 'Copy Button', name: 'btn_copy', widget: 'string' }
-          - { label: 'Save Button', name: 'btn_save', widget: 'string' }
-          - { label: 'Next Button', name: 'btn_next', widget: 'string' }
-          - { label: 'Back Button', name: 'btn_back', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Register', name: 'btn_register', widget: 'string' }
+          - { label: 'Login', name: 'btn_login', widget: 'string' }
       - label: 'Login'
         name: 'login'
         file: 'assets/content/login.json'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Intro Message', name: 'body', widget: 'markdown' }
-          - { label: 'Login Button', name: 'btn_login', widget: 'string' }
-          - { label: 'Cancel Button', name: 'btn_cancel', widget: 'string' }
-      - label: 'Activities'
-        name: 'activities'
-        file: 'assets/content/activities.json'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Drug Use', name: 'drugs', widget: 'string' }
-          - { label: 'Behavioural Awareness', name: 'awareness', widget: 'string' }
-          - { label: 'Relationship Assessment', name: 'relationships', widget: 'string' }
-          - { label: 'Goals and Committed Actions', name: 'goals', widget: 'string' }
-          - { label: 'Social Norms', name: 'social', widget: 'string' }
-          - { label: 'Overall Personalized feedback ', name: 'review', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Register', name: 'btn_register', widget: 'string' }
+          - { label: 'Login', name: 'btn_login', widget: 'string' }
       - label: 'About'
         name: 'about'
         file: 'assets/content/about.json'

@@ -28,7 +28,6 @@
 </template>
 <script>
 import RangeSlider from 'vue-range-slider'
-// you probably need to import built-in style
 import 'vue-range-slider/dist/vue-range-slider.css'
 
 export default {
@@ -48,7 +47,6 @@ export default {
   methods: {
     changedSliders() {
       this.$emit('selected', this.sliderValue)
-      console.log('changed sliders')
     }
   }
 }

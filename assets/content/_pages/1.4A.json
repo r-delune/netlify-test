@@ -1,0 +1,12 @@
+{
+    "title": "1.4A",
+    "introduction": "",
+    "form": [
+        {
+            "type": "custom",
+            "introduction": "What drugs have you used?",
+            "items": "not good",
+            "custom_component_id": "DrugsQuiz"
+        }
+    ]
+}

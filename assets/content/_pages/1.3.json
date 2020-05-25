@@ -1,6 +1,5 @@
 {
   "title": "1.3",
-  "id": "3",
   "introduction": "this has a rank question it - customexample component should appear?",
   "form": [
     {
@@ -21,7 +20,5 @@
         "asdsadad"
       ]
     }
-  ],
-  "is_custom_component": true,
-  "custom_component_id": "CustomExample"
+  ]
 }
