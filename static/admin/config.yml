@@ -1,12 +1,12 @@
 backend:
   name: git-gateway
   branch: master
-  local_backend: true
+  # local_backend: true
 
 media_folder: static/img
 public_folder: /img
 
-display_url: https://miuse-test.com
+display_url: https://www.howtogeek.com/wp-content/uploads/2018/06/shutterstock_1006988770.png
 logo_url: https://miuse-test.com/images/logo.svg
 
 collections:
@@ -198,15 +198,10 @@ collections:
             fields:
               - { label: 'Question Text', name: 'string', widget: 'string' }
               - { label: 'Complete after', name: 'limit', hint: 'Mark question as completed after count', widget: 'number' }
-              - label: 'Select and Rank list'
+              - label: 'Select and Rank list item'
                 name: 'list'
                 widget: 'list'
                 hint: 'Add an item to the list'
-              - label: "Tags"
-                name: "tags"
-                widget: "list"
-                hint: 'Add an array item to the list'
-                field: {name: tag, label: Tag, widget: string}
           
           # 'Multiple Choice Question'
           - label: 'Multiple Choice Question'
