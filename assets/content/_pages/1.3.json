@@ -1,27 +1,25 @@
 {
-  "title": "page-3",
+  "title": "1.3",
   "id": "3",
   "introduction": "this has a rank question it - customexample component should appear?",
   "form": [
     {
+      "low_label": "not good",
+      "text": "This is an example slider question",
+      "string": "could you rank ythese",
+      "high_label": "good",
+      "tags": [
+        "sadasdsasd, asdsadsad"
+      ],
       "type": "rank",
       "datetime": "2020-05-24T20:54:20.045Z",
-      "text": "This is an example slider question",
-      "low_label": "not good",
-      "high_label": "good",
+      "limit": 3,
       "range": 9,
       "list": [
-        {
-          "item": "first item "
-        },
-        {
-          "item": "second item"
-        },
-        {
-          "item": "third item"
-        }
-      ],
-      "string": "could you rank ythese"
+        "ssdasds",
+        "asdsadd",
+        "asdsadad"
+      ]
     }
   ],
   "is_custom_component": true,
