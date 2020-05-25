@@ -1,13 +1,13 @@
 {
-    "title": "page-6",
-    "id": "6",
-    "introduction": "welcome to page 6 - choose a binary, final question",
-    "form": [
-        {
-            "type": "binary",
-            "question_text": "answer yes no here",
-            "yes_text": "yes",
-            "no_text": "no"
-        }
-    ]
+  "title": "1.6",
+  "id": "6",
+  "introduction": "welcome to page 6 - choose a binary, final question",
+  "form": [
+    {
+      "type": "binary",
+      "question_text": "answer yes no here",
+      "yes_text": "yes",
+      "no_text": "no"
+    }
+  ]
 }
