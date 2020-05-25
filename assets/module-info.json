@@ -1,0 +1,66 @@
+{
+    "modules": [
+        {
+            "name": "Module 1 - 'Building MyUse Profile",
+            "id": 1,
+            "icon": "faCheck",
+            "color": "red",
+            "start": "1.0",
+            "Non": {
+                "length": 12
+            },
+            "Moderate": {
+                "length": 12
+            },
+            "Severe": {
+                "length": 12
+            },
+            "lengths": {
+                "Non": 12,
+                "Moderate": 6,
+                "Severe": 6
+            }
+        },
+        {
+            "name": "Module 2 - 'Test",
+            "icon": "faCheck",
+            "color": "red",
+            "start": "2.0",
+            "id": 2,
+            "Non": {
+                "length": 12
+            },
+            "Severe": {
+                "length": 12
+            },
+            "lengths": {
+                "Non": 12,
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "Module 3 - 'Test",
+            "start": "3.0",
+            "icon": "faCheck",
+            "color": "red",
+            "id": 3,
+            "Severe": {
+                "length": 12
+            },
+            "lengths": {
+                "Non": 12,
+                "Moderate": 6
+            }
+        },
+        {
+            "name": "Module 4 - 'Test",
+            "start": "4.0",
+            "color": "red",
+            "icon": "faCheck",
+            "id": 4,
+            "lengths": {
+                "Moderate": 6
+            }
+        }
+    ]
+}

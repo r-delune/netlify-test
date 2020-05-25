@@ -1,45 +1,32 @@
 export const state = () => ({
-  modules: [],
-  pages: []
+  page_data: [],
 })
 
-export const mutations = {
-  // setModule(state, list) {
-  //   state.modules = list
-  // }
-  setPage(state, list) {
-    state.pages = list
-  }
-}
-
-// export const actions = {
-//   async nuxtServerInit({ commit }) {
-//     let files = await require.context(
-//       '~/assets/content/_modules/',
-//       false,
-//       /\.json$/
-//     )
-//     let modules = files.keys().map(key => {
-//       let res = files(key)
-//       res.slug = key.slice(2, -5)
-//       return res
-//     })
-//     await commit('setModule', modules)
-//   }
-// }
-
 export const actions = {
+  // render all static pages to route
   async nuxtServerInit({ commit }) {
     let files = await require.context(
       '~/assets/content/_pages/',
       false,
       /\.json$/
     )
-    let pages = files.keys().map(key => {
+    let page_data = files.keys().map(key => {
       let res = files(key)
       res.slug = key.slice(2, -5)
       return res
     })
-    await commit('setPage', pages)
+    await commit('setPageData', page_data)
+  },
+}
+
+export const mutations = {
+  setPageData(state, list) {
+    state.page_data = list
+  }
+}
+
+export const getters = {
+  getNextPage(state) {
+    return state.current_module
   }
 }

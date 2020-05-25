@@ -1,34 +1,43 @@
 <template>
   <div>
-    <logo />
-    <h1 class="title">Nuxt.js & Netlify CMS Starter</h1>
-    <h2 class="subtitle">Truly fantastic. Sometimes I astound even myself.</h2>
-    <a href="https://github.com/xdesro/nuxt-netlify-cms-starter">GitHub</a>
-    <a href="http://i.ncredibly.online">Twitter</a>
-    <nuxt-link to="/page">Page</nuxt-link>
-    <div class="deploy-button">
-      <a
-        href="https://app.netlify.com/start/deploy?repository=https://github.com/xdesro/nuxt-netlify-cms-starter"
-      >
-        <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
-      </a>
+    <div class="row">
+      <div class="text-center floater col-4 col-4-sm" v-for="(course, i) in user_courses" :key="i">
+        <nuxt-link slot="brand" :to="'page/'+course.id+'.0'">
+          <!-- <font-awesome-icon
+            class="activity_icon"
+            :style="{ color: course.color }"
+          />-->
+          {{course.name}}
+        </nuxt-link>
+        <div class="progress-label">
+          <slot name="label">
+            <span>{{course.key}}</span>
+          </slot>
+        </div>
+        <!-- <menu-progress type="success" :value="course.progress"></menu-progress> -->
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-    Logo
-  },
   head() {
     return {
       script: [
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
       ]
     }
+  },
+  computed: {
+    ...mapGetters({
+      user_courses: 'navigation/getMenuItems'
+    })
+  },
+  created() {
+    this.$store.dispatch('navigation/fetchNavigationData')
   }
 }
 </script>

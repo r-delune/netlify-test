@@ -48,7 +48,8 @@ import CustomExample from '~/components/custom/CustomExample.vue'
 
 export default {
   data: () => ({
-    page_number: 0
+    page_number: 0,
+    limit: 0
   }),
   components: {
     Rank,
@@ -59,6 +60,9 @@ export default {
   },
   computed: {
     is_completed() {
+      console.log('PAGE')
+      console.log(this.page)
+      // set page as completed if there are no forms
       if (this.page.form.length == 0) {
         return true
       } else {
@@ -75,6 +79,15 @@ export default {
     },
     selected(answer) {
       console.log('Answer has recieved callback: ' + answer)
+
+      // Only set to true if page has completed requirements
+      if ('limit' in page) {
+        if (answer.length > page.limit) {
+          this.is_completed = true
+        } else {
+          this.is_completed = false
+        }
+      }
     }
   },
   async asyncData({ params, payload }) {

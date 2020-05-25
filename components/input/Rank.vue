@@ -39,10 +39,14 @@ export default {
       var self = this
       var final = []
 
+      const list_items = this.settings.list.map(e => Object.values(e))
+
+      console.log(list_items)
+
       this.selected_items.forEach(function(item, index) {
         let selected = {}
         console.log('self.settings - ' + self.settings)
-        selected.id = self.settings.indexOf(item)
+        selected.id = list_items.indexOf(item)
         selected.text = item
         final[index] = selected
       })

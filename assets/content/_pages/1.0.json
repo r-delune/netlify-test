@@ -1,0 +1,8 @@
+{
+    "title": "1.0",
+    "id": "1",
+    "introduction": "welcome to the module  - intro",
+    "form": [],
+    "is_custom_component": true,
+    "custom_component_id": "CustomExample"
+}
