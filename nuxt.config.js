@@ -1,3 +1,4 @@
+require('dotenv').config({ path: './.env' })
 export default {
   mode: 'universal',
   /*
@@ -46,13 +47,36 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+  buildModules: [
+    '@nuxtjs/dotenv',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-165087681-1'
+    }]],
   /*
    ** Nuxt.js modules
    */
   modules: ['@nuxtjs/markdownit'],
+  /*
+   ** Render markdown
+   */
   markdownit: {
     injected: true
+  },
+  /*
+   ** Create axios requests to backend
+   */
+  axios: {
+    debug: false,
+    credentials: true,
+    //proxy: true,
+    //https: true
+  },
+  /*
+   ** Environment variables
+   */
+  env: {
+    baseURL: process.env.BASE_URL || 'http://localhost:8000',
+    baseAPI: process.env.BASE_API || 'http://localhost:8000/api'
   },
   /*
    ** Build configuration

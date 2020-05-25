@@ -44,6 +44,7 @@ export default {
     selected_primary(selected) {
       console.log('selected primary item' + selected)
       this.primary_drug = selected
+      this.$emit('selected', selected)
       this.$store.commit('profile/setPrimaryDrug', this.primary_drug)
     }
   },

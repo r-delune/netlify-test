@@ -31,7 +31,6 @@ collections:
     collapsed: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string', hint: 'title of this page' }
-      - { label: 'ID', name: 'id', widget: 'string', hint: 'ID reference for this page' }
       - { label: 'Introduction', name: 'introduction', widget: 'markdown', hint: 'Introductory text' }
       # To be removed
       - { label: 'Final', name: 'final', widget: 'boolean', hint: 'Indicate this is the final page of this module', default: false }
@@ -54,6 +53,16 @@ collections:
               - { label: 'Question Text', name: 'question_text', widget: 'string' }
               - { label: 'Yes Text', name: 'yes_text', widget: 'string' }
               - { label: 'No Text', name: 'no_text', widget: 'string' }
+        
+          # Open Input
+          - label: 'Open Inout'
+            name: 'open'
+            widget: 'object'
+            hint: Create an open input field
+            description: >
+              Create a yes/no format question
+            fields:
+              - { label: 'Question Text', name: 'question_text', widget: 'markdown' }
           
           # 'Slider Question'
           - label: 'Slider Question'
@@ -128,7 +137,7 @@ collections:
               Reference a custom component requiring user input
             hint: 'This is custom component specific to this page/activity'
             fields:
-              - { label: 'Component ID', name: 'custom_input_id', widget: 'number' }
+              - { label: 'Component ID', name: 'custom_component_id', widget: 'number' }
               - { label: 'Component Name', name: 'name', widget: 'string' }
               - { label: 'Question Text', name: 'introduction', widget: 'string' }
               - { label: 'Description/Notes', name: 'description', widget: 'string' }
@@ -141,7 +150,31 @@ collections:
                   - { label: 'Range', name: 'range', widget: 'number' }
 
   #
-  # GENERAL PAGES #######################################################
+  # COMPONENTS
+  #
+  - label: 'COMPONENT CONTENT'
+    name: 'component'
+    format: 'json'
+    delete: false
+    files:
+      - label: 'Quiz'
+        name: 'quiz'
+        file: 'assets/content/drugs_quiz.json'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Register', name: 'btn_register', widget: 'string' }
+          - { label: 'Login', name: 'btn_login', widget: 'string' }
+          - label: 'Feedback'
+            name: 'list item'
+            widget: 'list'
+            fields:
+              - label: 'Component Item'
+              - { label: 'List Item', name: 'items', widget: 'string' }
+              - { label: 'Range', name: 'range', widget: 'number' }
+
+  #
+  # GENERAL PAGES
   #
   - label: 'General'
     name: 'general'

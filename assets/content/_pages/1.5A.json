@@ -1,0 +1,27 @@
+{
+    "title": "1.5A",
+    "introduction": "this is a page 5 question - rank things",
+    "form": [
+        {
+            "items": "good",
+            "low_label": "not good",
+            "text": "This is an example rank question",
+            "string": "select and rank these items",
+            "high_label": "good",
+            "type": "rank",
+            "limit": 6,
+            "range": 5,
+            "list": [
+                {
+                    "item": "item 1"
+                },
+                {
+                    "item": "item 2"
+                },
+                {
+                    "item": "item 3"
+                }
+            ]
+        }
+    ]
+}

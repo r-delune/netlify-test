@@ -61,12 +61,37 @@ export const actions = {
 
             var module_logic = decision_tree_JSON[payload.page.title]
 
-            if (module_logic.next == 'conditional') {
+            if ('completed' in module_logic) {
+                console.log('completed condition ' + module_logic.completed)
+
+
+                for (var i = 0; i < module_logic.completed.set; i++) {
+                    console.log('completed set condition ' + module_logic.conditions)
+                    console.log('answers ' + payload.answers[i])
+                    console.log('found an action')
+                    console.log('CUSTOM SET ' + module_logic.completed.set[i])
+                    await commit('setNextPage', module_logic.completed.next)
+                }
+
+                await commit('setNextPage', module_logic.completed.next)
+
+            } else if (module_logic.next == 'conditional') {
                 for (var i = 0; i < module_logic.conditions.length; i++) {
 
-                    console.log('condition ' + i)
+                    console.log('condition ' + module_logic.conditions)
+                    console.log(module_logic.conditions[i])
+                    console.log(module_logic.conditions[i].answer)
                     console.log('answers ' + payload.answers[i])
 
+                    if (module_logic.conditions[i].answer == payload.answers[i]) {
+                        for (var i = 0; i < module_logic.conditions.length; i++) {
+                            console.log('found an action')
+                            console.log(module_logic.conditions[i].actions.next)
+                            module_logic.conditions[i].actions.next
+
+                            await commit('setNextPage', module_logic.conditions[i].actions.next)
+                        }
+                    }
                 }
                 console.log('found conditional in decision tree')
 

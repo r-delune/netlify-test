@@ -15,6 +15,10 @@
       <div v-if="qs.type == 'slider'">
         <slider :settings="qs" @selected="selected"></slider>
       </div>
+      <!-- Open Question -->
+      <div v-if="qs.type == 'open'">
+        <textarea :settings="qs" @selected="selected" placeholder="qs.type.text"></textarea>
+      </div>
       <!-- Rank Question -->
       <div v-if="qs.type == 'rank'">
         <rank :settings="qs" @selected="selected"></rank>
@@ -23,14 +27,10 @@
       <div v-if="qs.type == 'choice'">
         <multiple-choice :settings="qs" @selected="selected"></multiple-choice>
       </div>
-      <!-- Custom Question -->
+      <!-- Custom Component -->
       <div v-if="qs.type == 'custom'">
-        <component :is="page.custom_input_id" :settings="qs" @selected="selected"></component>
+        <component :is="qs.custom_component_id" :settings="qs" @selected="selected"></component>
       </div>
-    </div>
-    <!-- Show Custom Component -->
-    <div v-if="page.is_custom_component == true">
-      <component :is="page.custom_component_id" :items="page.page"></component>
     </div>
     <form role="form" class="text-center">
       <button
@@ -60,13 +60,14 @@
 import { mapMutations } from 'vuex'
 
 // Input components
-import Binary from '~/components/input/BinarySelect.vue'
+import Binary from '~/components/input/Binary.vue'
 import MultipleChoice from '~/components/input/MultipleChoice.vue'
 import Slider from '~/components/input/Slider.vue'
 import Rank from '~/components/input/Rank.vue'
 
 // Custom components
 import CustomExample from '~/components/custom/CustomExample.vue'
+import DrugsQuiz from '~/components/custom/DrugsQuiz.vue'
 
 export default {
   data: () => ({
@@ -76,6 +77,7 @@ export default {
   components: {
     Rank,
     Binary,
+    DrugsQuiz: DrugsQuiz,
     Slider,
     MultipleChoice,
     CustomExample
