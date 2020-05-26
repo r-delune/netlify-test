@@ -45,7 +45,7 @@
 			</div>
 		</div>
 		<!-- Users Table -->
-		<template>
+		<!-- <template>
 			<card>
 				<client-only>
 					<vuetable
@@ -66,7 +66,7 @@
 					</div>
 				</client-only>
 			</card>
-		</template>
+		</template>-->
 		<div class="row">
 			<div class="col p-4 text-center">
 				<base-button class="active" @click.end="downloadCSV()">Download CSV</base-button>
@@ -76,9 +76,9 @@
 </template>
 <script>
 import { mapState } from 'vuex';
-import Vuetable from 'vuetable-2/src/components/Vuetable';
-import VuetablePagination from 'vuetable-2/src/components/VuetablePagination';
-import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo';
+// import Vuetable from 'vuetable-2/src/components/Vuetable';
+// import VuetablePagination from 'vuetable-2/src/components/VuetablePagination';
+// import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo';
 export default {
 	middleware: 'authenticated',
 	layout: 'layout-tool',
@@ -105,9 +105,9 @@ export default {
 		...mapState('auth', ['loggedIn', 'user'])
 	},
 	components: {
-		Vuetable,
-		VuetablePagination,
-		VuetablePaginationInfo
+		// Vuetable,
+		// VuetablePagination,
+		// VuetablePaginationInfo
 	},
 	computed: {
 		...mapState('auth', ['loggedIn', 'user'])

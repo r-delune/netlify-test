@@ -12,18 +12,18 @@
 				addon-left-icon="ni ni-lock-circle-open"
 			></base-input>
 			<base-checkbox v-model="remember_me" class="text-center">Remember me</base-checkbox>
-			<base-input
+			<!-- <base-input
 				type="password"
 				v-model="password_confirmation"
 				placeholder="Confirm Password"
 				addon-left-icon="ni ni-lock-circle-open"
-			></base-input>
-			<password
+			></base-input>-->
+			<!-- <password
 				v-model="password"
 				@score="showScore"
 				@feedback="showFeedback"
 				:strength-meter-only="true"
-			/>
+			/>-->
 			<base-checkbox v-model="agreed_privacy" class="text-center">
 				<span>
 					I agree to the
@@ -61,7 +61,7 @@
 </template>
 <script>
 import { mapState } from 'vuex';
-import Password from 'vue-password-strength-meter';
+// import Password from 'vue-password-strength-meter';
 export default {
 	layout: 'layout-tool',
 	name: 'register-admin',
@@ -76,7 +76,7 @@ export default {
 		};
 	},
 	components: {
-		Password
+		// Password
 	},
 	computed: {
 		...mapState('auth', ['loggedIn', 'user'])

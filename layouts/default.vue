@@ -17,7 +17,7 @@
 <script>
 import Header from '~/components/layout/Header';
 import Footer from '~/components/layout/Footer';
-import { Reveal } from 'vue-burger-menu';
+// import { Reveal } from 'vue-burger-menu';
 import { mapState } from 'vuex';
 
 let pwaPrompt;
@@ -25,8 +25,8 @@ let pwaPrompt;
 export default {
 	components: {
 		Header,
-		Footer,
-		Reveal
+		Footer
+		// Reveal
 	},
 	computed: {
 		menu_items() {

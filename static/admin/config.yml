@@ -20,10 +20,10 @@ collections:
     description: >
       Create pages here within each module. Remember that flow to each page is not linear - users will be directed to the next page based on the decision tree.
     create: true
-    slug:
-      encoding: "ascii"
-      clean_accents: true
-      sanitize_replacement: "_"
+    # slug:
+    #   encoding: "ascii"
+    #   clean_accents: true
+    #   sanitize_replacement: "_"
     editor:
       preview: false
     meta:
@@ -92,7 +92,7 @@ collections:
                 name: 'list'
                 widget: 'list'
                 hint: 'Add an item to the list'
-                slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}_{{fields.test}}_{{test}"
+                # slug: "{{year}}-{{month}}-{{day}}_{{fields.slug}}_{{fields.test}}_{{test}"
           
           # 'Multiple Choice Question'
           - label: 'Multiple Choice Question'
@@ -152,7 +152,7 @@ collections:
   #
   # COMPONENTS
   #
-  - label: 'COMPONENT CONTENT'
+  - label: 'Component'
     name: 'component'
     format: 'json'
     delete: false
