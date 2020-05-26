@@ -17,6 +17,9 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  /*
+   ** Auto-generate custome routes
+  */
   generate: {
     routes: function () {
       const fs = require('fs');
@@ -29,8 +32,13 @@ export default {
       });
     },
   },
-  plugins: [,
-    '@/plugins/vue-draggeable.js',
+  /*
+   ** External js plugins
+  */
+  plugins: [
+    { src: '@/plugins/vue-draggeable.js', ssr: false },
+    { src: '@/plugins/youtube-embed.js', ssr: false },
+    { src: '@/plugins/vue-charts.js', mode: 'client' }
   ],
   /*
    ** Customize the progress-bar color
@@ -39,7 +47,9 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    { src: '~/assets/styles/transitions.css', lang: 'css' }
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -70,6 +80,49 @@ export default {
     credentials: true,
     //proxy: true,
     //https: true
+  },
+  /*
+  ** Authentication interface with API
+  */
+  auth: {
+    plugins: ['~/plugins/auth.js'],
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: false,
+      home: '/'
+    },
+    strategies: {
+      'laravel.passport': {
+        redirect: false,
+        url: process.env.BASE_API,
+        client_id: process.env.PASSWORD_GRANT_ID,
+        client_secret: process.env.PASSWORD_GRANT_SECRET,
+      },
+      // User authentication
+      local: {
+        endpoints: {
+          login: { url: process.env.BASE_API + '/auth/login_profile', method: 'POST', propertyName: 'access_token' },
+          user: { url: process.env.BASE_API + '/auth/profile', method: 'GET', propertyName: 'user' },
+          logout: { url: process.env.BASE_API + '/auth/profile_logout', method: 'GET' }
+        },
+        // tokenRequired:true,
+        client_id: process.env.PASSWORD_GRANT_ID,
+        client_secret: process.env.PASSWORD_GRANT_SECRET,
+      },
+      // Admin authentication
+      local2: {
+        _scheme: 'local',
+        endpoints: {
+          login: { url: process.env.BASE_API + '/auth/admin_login', method: 'POST' },
+          user: { url: process.env.BASE_API + '/auth/admin', method: 'GET', propertyName: 'user' },
+          logout: { url: process.env.BASE_API + '/auth/admin_logout', method: 'GET' }
+        },
+        tokenRequired: true,
+        client_id: process.env.PASSWORD_GRANT_ID,
+        client_secret: process.env.PASSWORD_GRANT_SECRET,
+      }
+    }
   },
   /*
    ** Environment variables
