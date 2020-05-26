@@ -5,22 +5,19 @@
   "form": [
     {
       "type": "choice",
+      "tags": [
+        "dfsdf"
+      ],
       "list": [
         {
-          "item": "fasfasdfa"
+          "item": "dfsdfdfs"
         },
         {
-          "item": "sdafsafds"
-        },
-        {
-          "item": "safdff"
+          "item": "dsfdf"
         }
       ],
-      "limit": 3,
-      "question_text": "test",
-      "tags": [
-        "dsfdsfdsdsf"
-      ]
+      "question_text": "s3",
+      "limit": 23
     }
   ]
 }
