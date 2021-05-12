@@ -22,7 +22,7 @@
     "@nuxtjs/google-analytics": "^2.3.0",
     "@nuxtjs/markdownit": "^1.2.9",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "nuxt": "^2.11.0",
     "nuxt-clipboard2": "^0.2.1",
     "vue-burger-menu": "^2.0.5",
